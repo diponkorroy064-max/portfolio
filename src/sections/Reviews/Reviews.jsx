@@ -7,7 +7,7 @@ import reviews from "@/data/reviews";
 export default function Reviews() {
     return (
         <section id="reviews"
-            className="bg-slate-950 py-12 px-6 lg:px-12 text-white">
+            className="bg-slate-900 py-12 px-6 lg:px-12 text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Heading */}
                 <motion.div
@@ -45,7 +45,7 @@ export default function Reviews() {
                             }}
                             viewport={{ once: true }}
                             whileHover={{ y: -8 }}
-                            className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500 transition">
+                            className="bg-slate-800 border border-slate-800 rounded-2xl p-6 hover:border-sky-500 transition">
                             <div className="flex gap-1 text-yellow-400 mb-4">
                                 {[...Array(review.rating)].map((_, i) => (
                                     <Star
@@ -80,7 +80,7 @@ export default function Reviews() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="mt-15 bg-slate-900 rounded-3xl border border-slate-800 p-8">
+                    className="mt-15 bg-slate-950 rounded-3xl border border-slate-800 p-8">
                     <h3 className="text-3xl font-bold text-center mb-8">
                         Leave a Review
                     </h3>

@@ -66,14 +66,14 @@ export default function About() {
                     className="max-w-7xl mx-auto mt-10">
                     <div className="bg-slate-800/60 backdrop-blur-lg border border-slate-700 rounded-3xl p-8 md:p-10 shadow-xl">
 
-                        <p className="text-2xl md:text-3xl font-semibold leading-relaxed text-white">
+                        <p className="text-xl md:text-3xl font-semibold leading-relaxed text-white">
                             Hi, I'm{" "}
                             <span className="text-sky-400">Diponkor Roy</span> 👋
                         </p>
 
-                        <div className="w-20 h-1 bg-sky-500 rounded-full mt-4 mb-8"></div>
+                        <div className="w-20 h-1 bg-sky-500 rounded-full mt-4 mb-6"></div>
 
-                        <div className="space-y-7 text-gray-300 leading-9 text-lg">
+                        <div className="space-y-7 text-gray-300 leading-9 text-sm md:text-lg">
 
                             <p>
                                 I'm a passionate{" "}

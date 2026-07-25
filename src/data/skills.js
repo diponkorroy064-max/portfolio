@@ -12,7 +12,7 @@ const skills = [
         category: "Frontend",
         items: [
             { name: "TypeScript", icon: BsTypescript },
-            { name: "JavaScript(ES6+)", icon: FaJs },
+            { name: "JavaScript", icon: FaJs },
             { name: "Next.js", icon: SiNextdotjs },
             { name: "React.js", icon: FaReact },
             { name: "Tailwind CSS", icon: SiTailwindcss },

@@ -5,7 +5,7 @@ import { Download, Eye, FileText } from "lucide-react";
 
 export default function Resume() {
     return (
-        <section id="resume" className="bg-slate-900 py-12 px-6 lg:px-12 text-white">
+        <section id="resume" className="bg-slate-950 py-12 px-6 lg:px-12 text-white">
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
 

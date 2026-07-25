@@ -78,7 +78,7 @@ export default function Contact() {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-16 mt-20">
+                <div className="grid lg:grid-cols-2 gap-16 mt-10">
 
                     {/* Left Side */}
                     <motion.div

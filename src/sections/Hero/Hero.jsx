@@ -19,11 +19,11 @@ export default function Hero() {
                         Hello, I'm
                     </p>
 
-                    <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight">
                         Diponkor Roy
                     </h1>
 
-                    <h2 className="text-2xl md:text-3xl mt-4 text-gray-300 font-semibold">
+                    <h2 className="text-[16px] md:text-3xl mt-4 text-gray-300 font-semibold">
                         Frontend Developer
                         <span className="text-sky-400">
                             {" "}
@@ -34,15 +34,15 @@ export default function Hero() {
                     <p className="mt-5 text-gray-400 md:text-sm leading-8 max-w-3xl">
                         Passionate MERN Stack Developer with experience building
                         responsive, user-friendly, and scalable web applications
-                        using <b>Next.js, React, Node.js, Express.js, Typescript, Javascript(ES6+), Tailwind, HTML</b>.
+                        using <b className="text-sky-400">Next.js, React, Node.js, Express.js, Typescript, Javascript(ES6+), Tailwind, HTML</b>.
                         I enjoy transforming ideas into real-world digital
                         experiences with clean code and modern UI.
                     </p>
 
                     
                     {/* Buttons */}
-                    <div className="flex flex-wrap gap-5 mt-8">
-                        <a href="/resume/Diponkor_Roy_Resume.pdf" download className="bg-sky-500 hover:bg-sky-600 transition px-7 py-4 rounded-full font-semibold">
+                    <div className="flex justify-center md:justify-start items-center gap-5 mt-8">
+                        <a href="/resume/Diponkor_Roy_Resume.pdf" download className="bg-sky-500 hover:bg-sky-600 transition px-5 py-4 rounded-full font-semibold">
                             Download Resume
                         </a>
 
@@ -62,7 +62,7 @@ export default function Hero() {
 
                     <div className="relative">
                         <div className="absolute inset-0 rounded-full bg-sky-500 blur-[120px] opacity-30"></div>
-                        <Image src="/images/diponkor_roy.png" alt="Diponkor Roy" width={420} height={450} priority className="rounded-full border-4 border-sky-500 object-cover relative z-10 w-102 h-100"/>
+                        <Image src="/images/diponkor_roy.png" alt="Diponkor Roy" width={420} height={450} priority className="rounded-full border-4 border-sky-500 object-cover relative z-10 w-90 md:w-100 h-90 md:h-100"/>
                     </div>
                 </motion.div>
             </div>

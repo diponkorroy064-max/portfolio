@@ -39,7 +39,7 @@ export default function Footer() {
                             Quick Links
                         </h3>
 
-                        <ul className="space-y-3 text-gray-400">
+                        <ul className="grid grid-cols-2 gap-3 text-gray-400">
                             {[
                                 "home",
                                 "about",
@@ -64,6 +64,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    
                     {/* Contact & Social */}
                     <div>
                         <h3 className="text-xl font-semibold mb-5">
@@ -71,28 +72,29 @@ export default function Footer() {
                         </h3>
 
                         <div className="space-y-4">
-
-                            <p className="flex items-center gap-3 text-gray-400">
+                            
+                            {/* Email link */}
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=diponkorroy064@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-sky-400 transition-colors duration-300">
                                 <Mail size={18} />
-                                diponkor@example.com
-                            </p>
+                                <span>diponkorroy064@gmail.com</span>
+                            </a>
 
                             <div className="flex gap-4 mt-6">
-                                <a href="https://github.com/yourusername"
+                                <a href="https://github.com/diponkorroy064-max"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-12 h-12 rounded-full bg-slate-800 hover:bg-sky-500 flex items-center justify-center transition">
                                     <FaGithub size={20} />
                                 </a>
 
-                                <a href="https://linkedin.com/in/yourusername"
+                                <a href="https://www.linkedin.com/in/diponkorroy21010504"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-12 h-12 rounded-full bg-slate-800 hover:bg-sky-500 flex items-center justify-center transition">
                                     <FaLinkedin size={20} />
                                 </a>
 
-                                <a href="https://facebook.com/yourusername"
+                                <a href="https://www.facebook.com/diponkorroy.roy.92"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-12 h-12 rounded-full bg-slate-800 hover:bg-sky-500 flex items-center justify-center transition">

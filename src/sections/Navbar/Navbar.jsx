@@ -14,8 +14,7 @@ export default function Navbar() {
             initial={{ y: -80 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6 }}
-            className="fixed top-0 z-500 bg-slate-950/80 backdrop-blur-md border-b border-gray-500 container mx-auto"
-        >
+            className="fixed top-0 z-1000 bg-slate-950/80 backdrop-blur-md border-b border-gray-500 container mx-auto">
             <nav className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="h-20 flex items-center justify-between">
                     {/* Logo */}

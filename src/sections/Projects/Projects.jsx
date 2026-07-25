@@ -10,7 +10,7 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="py-24 bg-slate-950 text-white px-6 lg:px-12">
+            className="py-12 bg-slate-900 text-white px-6 lg:px-12">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}
@@ -33,7 +33,7 @@ export default function Projects() {
 
                 
                 {/* Project Cards */}
-                <div className="mt-20 space-y-12">
+                <div className="mt-10 space-y-12">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -96,14 +96,14 @@ export default function Projects() {
                                     </div>
 
                                     {/* Buttons */}
-                                    <div className="flex flex-wrap gap-4 mt-8">
-                                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-6 py-3 rounded-lg font-semibold transition">
+                                    <div className="flex gap-4 mt-8 justify-center md:justify-start">
+                                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-4 md:px-6 py-3 rounded-lg font-semibold transition">
                                             <ExternalLink size={18} />
                                             Live Demo
                                         </a>
 
                                         <a href={project.github} target="_blank" rel="noopener noreferrer"
-                                            className="flex items-center gap-2 border border-sky-500 hover:bg-sky-500 px-6 py-3 rounded-lg transition">
+                                            className="flex items-center gap-2 border border-sky-500 hover:bg-sky-500 px-4 md:px-6 py-3 rounded-lg transition">
                                             <FaGithub size={18} />
                                             GitHub
                                         </a>

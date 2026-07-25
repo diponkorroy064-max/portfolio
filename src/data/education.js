@@ -1,7 +1,7 @@
 const education = [
     {
         id: 1,
-        degree: "Bachelor of Science (B.Sc.) in Agriculture",
+        degree: "Bachelor of Science in Agriculture - B.Sc.Ag.(Hons.)",
         institution: "Sher-e-Bangla Agricultural University",
         location: "Dhaka-1207, Bangladesh",
         duration: "2022 - Present",

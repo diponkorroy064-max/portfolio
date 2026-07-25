@@ -33,12 +33,16 @@ export default function Home() {
         <Skills />
       </section>
 
+      <section id="projects">
+        <Projects />
+      </section>
+
       <section id="education">
         <Education />
       </section>
 
-      <section id="projects">
-        <Projects />
+      <section id="contact">
+        <Contact />
       </section>
 
       <section id="resume">
@@ -47,10 +51,6 @@ export default function Home() {
 
       <section id="reviews">
         <Reviews />
-      </section>
-
-      <section id="contact">
-        <Contact />
       </section>
 
       <Footer />
