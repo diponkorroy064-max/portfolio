@@ -15,13 +15,14 @@ const socialLinks = [
     {
         id: 3,
         icon: FaFacebook,
-        link: "https://facebook.com/yourusername",
+        link: "https://www.facebook.com/diponkorroy.roy.92",
     },
     {
         id: 4,
         icon: FaTwitter,
-        link: "https://twitter.com/yourusername",
+        link: "https://x.com/diponkor2025",
     },
 ];
 
 export default socialLinks;
+

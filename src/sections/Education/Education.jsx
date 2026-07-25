@@ -30,7 +30,7 @@ export default function Education() {
 
                 
                 {/* Timeline */}
-                <div className="relative mt-20">
+                <div className="relative mt-10">
 
                     {/* Vertical Line */}
                     <div className="hidden md:block absolute left-6 top-0 w-1 h-full bg-sky-500 rounded-full"></div>
@@ -45,7 +45,7 @@ export default function Education() {
                                 delay: index * 0.2,
                             }}
                             viewport={{ once: true }}
-                            className="relative flex items-start gap-8 mb-14">
+                            className="relative flex items-start gap-8 mb-5">
                             {/* Timeline Icon */}
 
                             <div className="w-12 h-12 rounded-full bg-sky-500 flex items-center justify-center z-10 shrink-0">

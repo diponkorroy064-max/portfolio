@@ -22,12 +22,12 @@ export default function Resume() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5 }}
-                    className="mt-16 bg-slate-800 border border-slate-700 rounded-3xl p-10 shadow-lg">
+                    className="mt-10 bg-slate-800 border border-slate-700 rounded-3xl p-10 shadow-lg">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
 
+                        
                         {/* Left */}
                         <div className="flex items-center gap-6">
-
                             <div className="w-24 h-24 rounded-full bg-sky-500 flex items-center justify-center">
                                 <FileText size={42} />
                             </div>
@@ -50,23 +50,16 @@ export default function Resume() {
                             </div>
                         </div>
 
+                        
                         {/* Right */}
                         <div className="flex flex-col sm:flex-row gap-5">
-
                             <a href="/resume/Diponkor_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-sky-500 hover:bg-sky-600 transition px-12 py-4 rounded-xl font-semibold">
-                                <Eye size={20} />
-                                View Resume
+                                <Eye size={20} /> View Resume
                             </a>
 
-                            <a
-                                href="/resume/Diponkor_Roy_Resume.pdf"
-                                download
-                                className="flex items-center justify-center gap-3 border border-sky-500 hover:bg-sky-500 transition px-12 py-4 rounded-xl font-semibold"
-                            >
-                                <Download size={20} />
-                                Download
+                            <a href="/resume/Diponkor_Roy_Resume.pdf" download className="flex items-center justify-center gap-3 border border-sky-500 hover:bg-sky-500 transition px-12 py-4 rounded-xl font-semibold">
+                                <Download size={20} /> Download
                             </a>
-
                         </div>
                     </div>
                 </motion.div>

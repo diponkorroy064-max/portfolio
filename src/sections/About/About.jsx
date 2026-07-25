@@ -1,12 +1,7 @@
 "use client";
-
 import { motion } from "framer-motion";
-import {
-    Code2,
-    Laptop,
-    BookOpen,
-    Lightbulb,
-} from "lucide-react";
+import { Code2, Laptop, BookOpen, Lightbulb,} from "lucide-react";
+
 
 export default function About() {
     const cards = [
@@ -36,22 +31,20 @@ export default function About() {
         },
     ];
 
+
     return (
         <section
             id="about"
-            className="bg-slate-900 py-24 px-6 lg:px-12"
-        >
+            className="bg-slate-900 py-15 px-6 lg:px-12">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}
-
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .6 }}
                     viewport={{ once: true }}
-                    className="text-center"
-                >
+                    className="text-center">
                     <p className="text-sky-400 font-semibold text-lg">
                         Get To Know Me
                     </p>
@@ -63,49 +56,74 @@ export default function About() {
                     <div className="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded-full"></div>
                 </motion.div>
 
+                
                 {/* Introduction */}
-
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: .8 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="max-w-4xl mx-auto mt-12 text-center"
-                >
-                    <p className="text-lg leading-9 text-gray-300">
-                        Hello! I'm{" "}
-                        <span className="text-sky-400 font-semibold">
-                            Diponkor Roy
-                        </span>
-                        , a passionate Frontend Developer specializing in the
-                        MERN Stack. I enjoy transforming creative ideas into
-                        interactive, responsive, and user-friendly web
-                        applications using React.js, Next.js, Node.js,
-                        Express.js, MongoDB, and Tailwind CSS.
+                    className="max-w-7xl mx-auto mt-10">
+                    <div className="bg-slate-800/60 backdrop-blur-lg border border-slate-700 rounded-3xl p-8 md:p-10 shadow-xl">
 
-                        <br />
-                        <br />
+                        <p className="text-2xl md:text-3xl font-semibold leading-relaxed text-white">
+                            Hi, I'm{" "}
+                            <span className="text-sky-400">Diponkor Roy</span> 👋
+                        </p>
 
-                        My academic background in Agriculture has strengthened
-                        my analytical thinking and problem-solving skills,
-                        allowing me to approach software development from a
-                        unique perspective. I believe technology should solve
-                        real-world problems while providing an excellent user
-                        experience.
+                        <div className="w-20 h-1 bg-sky-500 rounded-full mt-4 mb-8"></div>
 
-                        <br />
-                        <br />
+                        <div className="space-y-7 text-gray-300 leading-9 text-lg">
 
-                        I'm a lifelong learner who loves exploring modern web
-                        technologies, building personal projects, collaborating
-                        with teams, and continuously improving my development
-                        skills.
-                    </p>
+                            <p>
+                                I'm a passionate{" "}
+                                <span className="font-semibold text-sky-400">
+                                    Frontend Developer (MERN Stack)
+                                </span>{" "}
+                                who enjoys building modern, responsive, and user-friendly web
+                                applications using{" "}
+                                <span className="font-semibold text-white">
+                                    React.js, Next.js, Node.js, Express.js, MongoDB,
+                                    Tailwind CSS,
+                                </span>{" "}
+                                and other modern technologies.
+                            </p>
+
+                            <p className="border-l-4 border-sky-500 pl-6">
+                                My academic background in{" "}
+                                <span className="text-sky-400 font-semibold">
+                                    Agriculture
+                                </span>{" "}
+                                has strengthened my analytical thinking, research mindset,
+                                and problem-solving abilities. It allows me to approach
+                                software development from a unique perspective and create
+                                practical solutions for real-world challenges.
+                            </p>
+
+                            <p>
+                                I enjoy transforming ideas into clean, scalable, and
+                                interactive digital experiences. Whether it's designing
+                                beautiful interfaces, integrating REST APIs, or optimizing
+                                application performance, I'm always eager to learn and improve.
+                            </p>
+
+                            <p>
+                                Beyond coding, I enjoy reading books, exploring emerging
+                                technologies, and continuously expanding my knowledge.
+                                My goal is to become a skilled{" "}
+                                <span className="font-semibold text-sky-400">
+                                    Full Stack Software Engineer
+                                </span>{" "}
+                                who builds impactful products that make people's lives easier.
+                            </p>
+
+                        </div>
+                    </div>
                 </motion.div>
 
+                
                 {/* Cards */}
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
 
                     {cards.map((card, index) => (
 
@@ -122,8 +140,7 @@ export default function About() {
                                 y: -10,
                                 scale: 1.03,
                             }}
-                            className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-sky-500 transition-all"
-                        >
+                            className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-sky-500 transition-all">
 
                             <div className="text-sky-400 mb-5">
                                 {card.icon}
@@ -136,13 +153,9 @@ export default function About() {
                             <p className="text-gray-400 leading-7">
                                 {card.description}
                             </p>
-
                         </motion.div>
-
                     ))}
-
                 </div>
-
             </div>
         </section>
     );

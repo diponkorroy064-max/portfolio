@@ -8,7 +8,7 @@ import SocialLinks from "@/components/SocialLinks";
 export default function Hero() {
     return (
         <section className="min-h-screen flex items-center bg-slate-950 text-white px-6 md:px-12 pt-24 pb-5">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-7xl flex flex-col mx-auto gap-10 md:flex-row items-center justify-between">
 
                 {/* Left Side */}
                 <motion.div
@@ -19,7 +19,7 @@ export default function Hero() {
                         Hello, I'm
                     </p>
 
-                    <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                    <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight">
                         Diponkor Roy
                     </h1>
 
@@ -31,40 +31,29 @@ export default function Hero() {
                         </span>
                     </h2>
 
-                    <p className="mt-8 text-gray-400 leading-8 max-w-xl">
+                    <p className="mt-5 text-gray-400 md:text-sm leading-8 max-w-3xl">
                         Passionate MERN Stack Developer with experience building
                         responsive, user-friendly, and scalable web applications
-                        using React, Next.js, Node.js, Express.js, and MongoDB.
+                        using <b>Next.js, React, Node.js, Express.js, Typescript, Javascript(ES6+), Tailwind, HTML</b>.
                         I enjoy transforming ideas into real-world digital
                         experiences with clean code and modern UI.
                     </p>
 
+                    
                     {/* Buttons */}
                     <div className="flex flex-wrap gap-5 mt-8">
-                        <a
-                            href="/resume/Diponkor_Roy_Resume.pdf"
-                            download
-                            className="bg-sky-500 hover:bg-sky-600 transition px-7 py-4 rounded-full font-semibold">
+                        <a href="/resume/Diponkor_Roy_Resume.pdf" download className="bg-sky-500 hover:bg-sky-600 transition px-7 py-4 rounded-full font-semibold">
                             Download Resume
                         </a>
 
-                        <Link
-                            to="contact"
-                            smooth={true}
-                            duration={500}
-                            className="cursor-pointer border border-sky-500 hover:bg-sky-500 transition px-7 py-4 rounded-full font-semibold"
-                        >
+                        <Link to="contact" smooth={true} duration={500} className="cursor-pointer border border-sky-500 hover:bg-sky-500 transition px-7 py-4 rounded-full font-semibold">
                             Hire Me
                         </Link>
-
                     </div>
-
                     <SocialLinks />
-
                 </motion.div>
 
                 {/* Right Side */}
-
                 <motion.div
                     initial={{ opacity: 0, scale: .7 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -73,20 +62,11 @@ export default function Hero() {
 
                     <div className="relative">
                         <div className="absolute inset-0 rounded-full bg-sky-500 blur-[120px] opacity-30"></div>
-                        <Image
-                            src="/images/diponkor_roy.png"
-                            alt="Diponkor Roy"
-                            width={420}
-                            height={450}
-                            priority
-                            className="rounded-full border-4 border-sky-500 object-cover relative z-10"
-                        />
-
+                        <Image src="/images/diponkor_roy.png" alt="Diponkor Roy" width={420} height={450} priority className="rounded-full border-4 border-sky-500 object-cover relative z-10 w-102 h-100"/>
                     </div>
-
                 </motion.div>
-
             </div>
         </section>
     );
 }
+

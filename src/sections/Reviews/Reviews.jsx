@@ -7,8 +7,7 @@ import reviews from "@/data/reviews";
 export default function Reviews() {
     return (
         <section id="reviews"
-            className="bg-slate-950 py-12 px-6 lg:px-12 text-white"
-        >
+            className="bg-slate-950 py-12 px-6 lg:px-12 text-white">
             <div className="max-w-7xl mx-auto">
                 {/* Heading */}
                 <motion.div
@@ -16,8 +15,7 @@ export default function Reviews() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-center"
-                >
+                    className="text-center">
                     <p className="text-sky-400 text-lg font-semibold">
                         Feedback
                     </p>
@@ -30,12 +28,12 @@ export default function Reviews() {
 
                     <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
                         I value constructive feedback. Feel free to share your
-                        thoughts about my portfolio and suggest improvements.
+                        thoughts about my portfolio, Projects and suggest improvements.
                     </p>
                 </motion.div>
 
                 {/* Review Cards */}
-                <div className="grid lg:grid-cols-3 gap-8 mt-16">
+                <div className="grid lg:grid-cols-3 gap-8 mt-10">
                     {reviews.map((review, index) => (
                         <motion.div
                             key={review.id}
@@ -47,8 +45,7 @@ export default function Reviews() {
                             }}
                             viewport={{ once: true }}
                             whileHover={{ y: -8 }}
-                            className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500 transition"
-                        >
+                            className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500 transition">
                             <div className="flex gap-1 text-yellow-400 mb-4">
                                 {[...Array(review.rating)].map((_, i) => (
                                     <Star
@@ -76,14 +73,14 @@ export default function Reviews() {
                     ))}
                 </div>
 
+                
                 {/* Review Form */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="mt-20 bg-slate-900 rounded-3xl border border-slate-800 p-8"
-                >
+                    className="mt-15 bg-slate-900 rounded-3xl border border-slate-800 p-8">
                     <h3 className="text-3xl font-bold text-center mb-8">
                         Leave a Review
                     </h3>
@@ -93,43 +90,42 @@ export default function Reviews() {
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"
-                            />
+                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"/>
 
                             <input
                                 type="text"
                                 placeholder="Company / Organization"
-                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"
-                            />
+                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"/>
                         </div>
 
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"
-                        />
 
-                        <select
-                            className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"
-                        >
-                            <option>Rating</option>
-                            <option>⭐⭐⭐⭐⭐ (5)</option>
-                            <option>⭐⭐⭐⭐ (4)</option>
-                            <option>⭐⭐⭐ (3)</option>
-                            <option>⭐⭐ (2)</option>
-                            <option>⭐ (1)</option>
-                        </select>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <input
+                                type="email"
+                                placeholder="Email Address"
+                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500" />
 
+                            <select
+                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500">
+                                <option>Rating</option>
+                                <option>⭐⭐⭐⭐⭐ (5)</option>
+                                <option>⭐⭐⭐⭐ (4)</option>
+                                <option>⭐⭐⭐ (3)</option>
+                                <option>⭐⭐ (2)</option>
+                                <option>⭐ (1)</option>
+                            </select>
+                        </div>
+
+                        
                         <textarea
-                            rows="6"
+                            rows="4"
                             placeholder="Write your review..."
                             className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"
                         ></textarea>
 
                         <button
                             type="submit"
-                            className="bg-sky-500 hover:bg-sky-600 transition py-4 rounded-xl font-semibold"
-                        >
+                            className="bg-sky-500 hover:bg-sky-600 transition py-4 rounded-xl font-semibold cursor-pointer">
                             Submit Review
                         </button>
                     </form>
