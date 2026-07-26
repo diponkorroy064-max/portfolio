@@ -1,9 +1,9 @@
-const reviews = [
+const defaultReviews = [
     {
         id: 1,
         name: "Sarah Johnson",
         company: "Tech Solutions Ltd.",
-        rating: 5,
+        rating: "5",
         review:
             "Diponkor has built an impressive portfolio with a clean UI and responsive design. His projects demonstrate strong React and Next.js skills.",
     },
@@ -11,7 +11,7 @@ const reviews = [
         id: 2,
         name: "Michael Brown",
         company: "Creative Agency",
-        rating: 4,
+        rating: "4",
         review:
             "Excellent project organization and modern design. I would recommend adding more real-world case studies in future projects.",
     },
@@ -19,10 +19,10 @@ const reviews = [
         id: 3,
         name: "Emily Davis",
         company: "Software Engineer",
-        rating: 5,
+        rating: "5",
         review:
             "Very professional portfolio. The animations are smooth, and the code structure appears well organized.",
     },
 ];
 
-export default reviews;
+export default defaultReviews;

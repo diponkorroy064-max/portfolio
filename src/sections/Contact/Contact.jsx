@@ -37,7 +37,7 @@ export default function Contact() {
 
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
 
-        // Clear form after opening WhatsApp
+        // Clear form after opening WhatsApp---
         setFormData({
             name: "",
             email: "",
@@ -46,7 +46,7 @@ export default function Contact() {
         });
     };
 
-    console.log("formData by whatsApp", formData);
+    // console.log("formData by whatsApp", formData);
 
     return (
         <section

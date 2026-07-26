@@ -35,7 +35,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="bg-slate-900 py-15 px-6 lg:px-12">
+            className="bg-slate-900 py-12 px-6 lg:px-12">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}

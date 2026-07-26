@@ -37,20 +37,20 @@ export default function Home() {
         <Projects />
       </section>
 
-      <section id="education">
-        <Education />
+      <section id="resume">
+        <Resume />
       </section>
 
       <section id="contact">
         <Contact />
       </section>
 
-      <section id="resume">
-        <Resume />
-      </section>
-
       <section id="reviews">
         <Reviews />
+      </section>
+
+      <section id="education">
+        <Education />
       </section>
 
       <Footer />

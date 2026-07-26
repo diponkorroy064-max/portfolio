@@ -8,7 +8,7 @@ export default function Education() {
     return (
         <section
             id="education"
-            className="bg-slate-950 py-12 px-6 lg:px-12 text-white">
+            className="bg-slate-900 py-12 px-6 lg:px-12 text-white">
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
                 <motion.div

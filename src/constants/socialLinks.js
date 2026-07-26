@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaFacebook, FaTwitter} from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 
 const socialLinks = [
@@ -21,6 +22,11 @@ const socialLinks = [
         id: 4,
         icon: FaTwitter,
         link: "https://x.com/diponkor2025",
+    },
+    {
+        id: 5,
+        icon: MdEmail,
+        link: "https://mail.google.com/mail/?view=cm&fs=1&to=diponkorroy064@gmail.com",
     },
 ];
 

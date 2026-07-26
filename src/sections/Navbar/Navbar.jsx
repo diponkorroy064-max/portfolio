@@ -1,45 +1,50 @@
 "use client";
+
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { Menu, X, Download } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 import navLinks from "@/constants/navLinks";
-
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <motion.header
-            initial={{ y: -80 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fixed top-0 z-1000 bg-slate-950/80 backdrop-blur-md border-b border-gray-500 container mx-auto">
-            <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="h-20 flex items-center justify-between">
+        <>
+            <motion.header
+                initial={{ y: -80 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="container mx-auto fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-lg border-b border-slate-800"
+            >
+                <nav className="max-w-7xl mx-auto h-20 px-5 sm:px-6 lg:px-8 flex items-center justify-between">
                     {/* Logo */}
+
                     <Link
                         to="home"
-                        smooth={true}
+                        smooth
                         duration={500}
+                        offset={-70}
                         className="cursor-pointer"
                     >
-                        <h1 className="text-2xl font-bold text-sky-400">
-                            Diponkor<span className="text-white">.</span>
+                        <h1 className="text-2xl md:text-3xl font-bold text-sky-400">
+                            Diponkor
+                            <span className="text-white">.</span>
                         </h1>
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex items-center gap-8">
+
+                    <ul className="hidden lg:flex items-center gap-8">
                         {navLinks.map((item) => (
                             <li key={item.id}>
                                 <Link
                                     activeClass="text-sky-400"
-                                    to={item.to}
-                                    spy={true}
-                                    smooth={true}
+                                    spy
+                                    smooth
                                     duration={500}
                                     offset={-70}
+                                    to={item.to}
                                     className="cursor-pointer text-gray-300 hover:text-sky-400 transition font-medium"
                                 >
                                     {item.title}
@@ -48,59 +53,73 @@ export default function Navbar() {
                         ))}
                     </ul>
 
-                    {/* Resume Button */}
+                    {/* Resume */}
+
                     <a
                         href="/resume/Diponkor_Roy_Resume.pdf"
                         download
-                        className="hidden md:inline-block bg-sky-500 hover:bg-sky-600 px-5 py-2 rounded-full text-white font-semibold transition"
+                        className="hidden lg:flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-5 py-3 rounded-full font-semibold transition"
                     >
+                        <Download size={18} />
                         Resume
                     </a>
 
                     {/* Mobile Button */}
+
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden text-white"
+                        className="lg:hidden text-white"
                     >
-                        {menuOpen ? <X size={30} /> : <Menu size={30} />}
+                        {menuOpen ? <X size={32} /> : <Menu size={32} />}
                     </button>
-                </div>
+                </nav>
+            </motion.header>
 
-                {/* Mobile Menu */}
+            {/* Mobile Menu */}
+
+            <AnimatePresence>
                 {menuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden bg-slate-900 rounded-xl mb-5 p-6"
+                        initial={{ x: "100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "100%" }}
+                        transition={{ duration: 0.35 }}
+                        className="fixed inset-0 z-40 bg-slate-950 lg:hidden"
                     >
-                        <ul className="space-y-5">
-                            {navLinks.map((item) => (
-                                <li key={item.id}>
-                                    <Link
-                                        to={item.to}
-                                        smooth={true}
-                                        duration={500}
-                                        offset={-70}
-                                        onClick={() => setMenuOpen(false)}
-                                        className="block cursor-pointer text-gray-300 hover:text-sky-400 transition"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
+                        <div className="pt-28 px-8">
+
+                            <ul className="space-y-7 text-center">
+
+                                {navLinks.map((item) => (
+                                    <li key={item.id}>
+                                        <Link
+                                            to={item.to}
+                                            smooth
+                                            duration={500}
+                                            offset={-70}
+                                            onClick={() => setMenuOpen(false)}
+                                            className="block text-2xl text-gray-300 hover:text-sky-400 transition"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))}
+
+                            </ul>
 
                             <a
                                 href="/resume/Diponkor_Roy_Resume.pdf"
                                 download
-                                className="block text-center bg-sky-500 hover:bg-sky-600 py-3 rounded-lg font-semibold"
+                                className="mt-10 flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-600 rounded-xl py-4 font-semibold"
                             >
+                                <Download size={20} />
                                 Download Resume
                             </a>
-                        </ul>
+
+                        </div>
                     </motion.div>
                 )}
-            </nav>
-        </motion.header>
+            </AnimatePresence>
+        </>
     );
 }
