@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="container mx-auto min-h-screen bg-slate-950 text-white overflow-x-hidden">
+    <main className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
       <Navbar id="navbar" />
 
       <section id="home">

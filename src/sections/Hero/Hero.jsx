@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import SocialLinks from "@/components/SocialLinks";
+import ResumeButton from "@/components/ResumeButton";
 
 
 export default function Hero() {
@@ -31,7 +32,7 @@ export default function Hero() {
                         <span className="text-sky-400">(MERN Stack)</span>
                     </h2>
 
-                    <p className="mt-8 max-w-2xl mx-auto lg:mx-0 text-gray-400 text-base sm:text-lg leading-8">
+                    <p className="mt-5 max-w-2xl mx-auto lg:mx-0 text-gray-400 text-base sm:text-lg leading-8">
                         Passionate MERN Stack Developer with experience building
                         responsive, user-friendly, and scalable web applications using{" "}
                         <span className="font-semibold text-sky-400">
@@ -44,20 +45,22 @@ export default function Hero() {
 
                     
                     {/* Buttons */}
-                    <div className="mt-10 flex flex-col justify-center md:justify-start sm:flex-row items-center lg:items-start gap-5">
-                        <a
-                            href="/resume/Diponkor_Roy_Resume.pdf"
+                    <div className="mt-6 flex flex-col justify-center md:justify-start sm:flex-row items-center lg:items-start gap-5">
+                        <ResumeButton type="download" className="w-full sm:w-auto"/>
+
+                        {/* <a
+                            href="/resume/Diponkor_Roy-Resume.pdf"
                             download
                             className="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 px-8 py-4 rounded-full font-semibold transition text-center">
                             Download Resume
-                        </a>
+                        </a> */}
 
                         <Link
                             to="contact"
                             smooth
                             duration={500}
                             offset={-70}
-                            className="w-full sm:w-auto cursor-pointer border border-sky-500 hover:bg-sky-500 px-8 py-4 rounded-full font-semibold transition text-center">
+                            className="w-full sm:w-auto cursor-pointer border border-sky-500 hover:bg-sky-500 px-6 py-3 rounded-full font-semibold transition text-center">
                             Hire Me
                         </Link>
                     </div>
@@ -79,7 +82,7 @@ export default function Hero() {
                         {/* Glow */}
                         <div className="absolute inset-0 rounded-full bg-sky-500 blur-[120px] opacity-30"></div>
 
-                        <Image src="/images/diponkor_roy.png" alt="Diponkor Roy" width={500} height={500} priority className="relative z-10 rounded-full border-4 border-sky-500 object-cover w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-105 lg:h-105"/>
+                        <Image src="/images/diponkor.png" alt="Diponkor Roy" width={500} height={500} priority className="relative z-10 rounded-full border-4 border-sky-500 object-cover w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-105 lg:h-105"/>
                     </div>
                 </motion.div>
             </div>

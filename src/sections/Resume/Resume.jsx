@@ -1,4 +1,5 @@
 "use client";
+import ResumeButton from "@/components/ResumeButton";
 import { motion } from "framer-motion";
 import { Download, Eye, FileText } from "lucide-react";
 
@@ -53,13 +54,17 @@ export default function Resume() {
                         
                         {/* Right */}
                         <div className="flex flex-col sm:flex-row gap-5">
-                            <a href="/resume/Diponkor_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-sky-500 hover:bg-sky-600 transition px-12 py-4 rounded-xl font-semibold">
-                                <Eye size={20} /> View Resume
-                            </a>
+                            <ResumeButton type="view" className="rounded-xl font-semibold transition text-center py-6"/>
 
-                            <a href="/resume/Diponkor_Roy_Resume.pdf" download className="flex items-center justify-center gap-3 border border-sky-500 hover:bg-sky-500 transition px-12 py-4 rounded-xl font-semibold">
+                            {/* <a href="/resume/Diponkor_Roy-Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-sky-500 hover:bg-sky-600 transition px-12 py-4 rounded-xl font-semibold">
+                                <Eye size={20} /> View Resume
+                            </a> */}
+
+                            {/* <a href="/resume/Diponkor_Roy-Resume.pdf" download className="flex items-center justify-center gap-3 border border-sky-500 hover:bg-sky-500 transition px-12 py-4 rounded-xl font-semibold">
                                 <Download size={20} /> Download
-                            </a>
+                            </a> */}
+                            
+                            <ResumeButton type="download" className="border border-sky-500 rounded-xl font-semibold transition text-center py-6"/>
                         </div>
                     </div>
                 </motion.div>
