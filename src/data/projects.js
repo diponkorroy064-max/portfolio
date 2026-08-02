@@ -45,7 +45,7 @@ const projects = [
             "Better Auth",
             "JWT",
         ],
-        live: "https://agromartai-client.vercel.app",
+        live: "https://agrolink-nine-pied.vercel.app",
         github: "https://github.com/diponkorroy064-max/AgroLink",
         challenges: "Designed multiple user roles, secure authentication, resource management and responsive dashboards.",
         future: "AI chatbot, expert booking system, crop disease prediction, and multilingual support.",
