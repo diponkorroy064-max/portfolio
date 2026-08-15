@@ -1,6 +1,6 @@
 import { BiCopyright } from "react-icons/bi";
 import { BsTypescript } from "react-icons/bs";
-import { DiMysql } from "react-icons/di";
+import { DiMysql, DiPostgresql } from "react-icons/di";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma,} from "react-icons/fa";
 import {  SiNextdotjs, SiTailwindcss, SiExpress, SiMongodb, SiPostman, SiVercel, SiFirebase,
 SiJsonwebtokens, SiFramer, SiMui, SiBetterauth,
@@ -41,6 +41,7 @@ const skills = [
         items: [
             { name: "MongoDB", icon: SiMongodb },
             { name: "MySQL", icon: DiMysql },
+            { name: "PostgreSQL", icon: DiPostgresql },
         ],
     },
 

@@ -68,7 +68,7 @@ const projects = [
             "Better Auth",
             "Stripe"
         ],
-        live: "https://staynest-six.vercel.app",
+        live: "https://staynest-vert-beta.vercel.app",
         github: "https://github.com/diponkorroy064-max/StayNest-Client",
         challenges: "Created advanced filtering, authentication, protected routes, and responsive property cards.",
         future: "Payment integration, wishlist, property reviews, and map-based searching.",
