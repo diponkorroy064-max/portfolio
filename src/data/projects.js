@@ -77,7 +77,7 @@ const projects = [
     {
         id: 400,
         title: "HireLoop",
-        image: "/images/projects/hireloop.png",
+        image: "/images/projects/hireloop.jpg",
         description:
             "A modern role-based job portal that connects job seekers, recruiters, and administrators through job posting, applications, company management, and dedicated dashboards.",
         technologies: [
