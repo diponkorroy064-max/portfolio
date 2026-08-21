@@ -1,6 +1,6 @@
 const projects = [
     // {
-    //     id: 1,
+    //     id: 100,
     //     title: "GreenHarvest",
     //     image: "/images/projects/greenharvest.png",
 
@@ -29,30 +29,30 @@ const projects = [
     //         "Integrate AI-based crop recommendations, online payment, real-time notifications, and order tracking.",
     // },
 
-    {
-        id: 2,
-        title: "AgroLink",
-        image: "/images/projects/agrolink1.png",
-        description: "A collaborative platform where farmers, students, and experts can share agricultural resources, knowledge, and research.",
-        technologies: [
-            "Next.js",
-            "React",
-            "Express.js",
-            "Node.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "MongoDB",
-            "Better Auth",
-            "JWT",
-        ],
-        live: "https://agrolink-nine-pied.vercel.app",
-        github: "https://github.com/diponkorroy064-max/AgroLink",
-        challenges: "Designed multiple user roles, secure authentication, resource management and responsive dashboards.",
-        future: "AI chatbot, expert booking system, crop disease prediction, and multilingual support.",
-    },
+    // {
+    //     id: 200,
+    //     title: "AgroLink",
+    //     image: "/images/projects/agrolink1.png",
+    //     description: "A collaborative platform where farmers, students, and experts can share agricultural resources, knowledge, and research.",
+    //     technologies: [
+    //         "Next.js",
+    //         "React",
+    //         "Express.js",
+    //         "Node.js",
+    //         "TypeScript",
+    //         "Tailwind CSS",
+    //         "MongoDB",
+    //         "Better Auth",
+    //         "JWT",
+    //     ],
+    //     live: "https://agrolink-nine-pied.vercel.app",
+    //     github: "https://github.com/diponkorroy064-max/AgroLink",
+    //     challenges: "Designed multiple user roles, secure authentication, resource management and responsive dashboards.",
+    //     future: "AI chatbot, expert booking system, crop disease prediction, and multilingual support.",
+    // },
 
     {
-        id: 3,
+        id: 300,
         title: "StayNest",
         image: "/images/projects/staynest1.png",
         description: "A rental property management platform where users can browse, book, and manage rental properties with a beautiful user interface.",
@@ -75,7 +75,34 @@ const projects = [
     },
 
     {
-        id: 4,
+        id: 400,
+        title: "HireLoop",
+        image: "/images/projects/hireloop.png",
+        description:
+            "A modern role-based job portal that connects job seekers, recruiters, and administrators through job posting, applications, company management, and dedicated dashboards.",
+        technologies: [
+            "Next.js",
+            "React",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Tailwind CSS",
+            "Better Auth",
+            "JWT",
+            "Framer Motion",
+        ],
+        live: "https://hireloop-client-five.vercel.app",
+        github: "https://github.com/diponkorroy064-max/Hireloop-Project",
+        challenges:
+            "Designed role-based dashboards, secure authentication and authorization, job search and filtering, company management, protected APIs, and recruiter-to-job application workflows.",
+        future:
+            "Real-time notifications, AI-powered job recommendations, advanced analytics, interview scheduling, resume matching, and enhanced messaging features.",
+    },
+
+   
+    {
+        id: 500,
         title: "PetHaven",
         image: "/images/projects/pethaven1.png",
         description: "A full-stack pet adoption platform that connects rescued pets with loving families. Users can browse pets, submit adoption requests, and manage pet listings through role-based dashboards.",
