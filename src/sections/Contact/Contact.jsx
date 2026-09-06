@@ -71,7 +71,7 @@ export default function Contact() {
 
                     <div className="w-24 h-1 bg-sky-500 rounded-full mx-auto mt-5"></div>
 
-                    <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+                    <p className="text-gray-400 mt-6 max-w-5xl mx-auto">
                         Interested in working together or have any questions?
                         Feel free to reach out through the contact form or
                         directly using the information below.

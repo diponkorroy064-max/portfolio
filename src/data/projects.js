@@ -1,60 +1,9 @@
 const projects = [
-    // {
-    //     id: 100,
-    //     title: "GreenHarvest",
-    //     image: "/images/projects/greenharvest.png",
-
-    //     description:
-    //         "A modern agriculture marketplace where farmers can sell agricultural products and buyers can browse, order, and securely purchase online.",
-
-    //     technologies: [
-    //         "Next.js",
-    //         "React",
-    //         "Tailwind CSS",
-    //         "Node.js",
-    //         "Express.js",
-    //         "MongoDB",
-    //         "JWT",
-    //     ],
-
-    //     live: "https://greenharvest.vercel.app",
-
-    //     github:
-    //         "https://github.com/yourusername/greenharvest-client",
-
-    //     challenges:
-    //         "Implemented authentication, role-based dashboard, product management, and responsive UI while maintaining clean component architecture.",
-
-    //     future:
-    //         "Integrate AI-based crop recommendations, online payment, real-time notifications, and order tracking.",
-    // },
-
-    // {
-    //     id: 200,
-    //     title: "AgroLink",
-    //     image: "/images/projects/agrolink1.png",
-    //     description: "A collaborative platform where farmers, students, and experts can share agricultural resources, knowledge, and research.",
-    //     technologies: [
-    //         "Next.js",
-    //         "React",
-    //         "Express.js",
-    //         "Node.js",
-    //         "TypeScript",
-    //         "Tailwind CSS",
-    //         "MongoDB",
-    //         "Better Auth",
-    //         "JWT",
-    //     ],
-    //     live: "https://agrolink-nine-pied.vercel.app",
-    //     github: "https://github.com/diponkorroy064-max/AgroLink",
-    //     challenges: "Designed multiple user roles, secure authentication, resource management and responsive dashboards.",
-    //     future: "AI chatbot, expert booking system, crop disease prediction, and multilingual support.",
-    // },
-
     {
         id: 300,
         title: "StayNest",
         image: "/images/projects/staynest1.png",
+        category: "full stack",
         description: "A rental property management platform where users can browse, book, and manage rental properties with a beautiful user interface.",
         technologies: [
             "Next.js",
@@ -77,7 +26,8 @@ const projects = [
     {
         id: 400,
         title: "HireLoop",
-        image: "/images/projects/hireloop.jpg",
+        image: "/images/projects/Hireloop.jpg",
+        category: "full stack",
         description:
             "A modern role-based job portal that connects job seekers, recruiters, and administrators through job posting, applications, company management, and dedicated dashboards.",
         technologies: [
@@ -100,11 +50,12 @@ const projects = [
             "Real-time notifications, AI-powered job recommendations, advanced analytics, interview scheduling, resume matching, and enhanced messaging features.",
     },
 
-   
+
     {
         id: 500,
         title: "PetHaven",
         image: "/images/projects/pethaven1.png",
+        category: "mern stack",
         description: "A full-stack pet adoption platform that connects rescued pets with loving families. Users can browse pets, submit adoption requests, and manage pet listings through role-based dashboards.",
         technologies: [
             "Next.js",
@@ -122,6 +73,85 @@ const projects = [
         challenges: "Implemented secure JWT authentication, role-based dashboards, pet adoption request management, protected routes, image uploading, and responsive UI with dynamic filtering.",
         future: "Add Stripe payment integration for donations, AI-powered pet recommendations, real-time chat between adopters and shelters, and email notifications for adoption updates.",
     },
+
+    {
+        id: 600,
+        title: "AgroLink",
+        image: "/images/projects/agrolink1.png",
+        category: "full stack",
+        description: "A collaborative platform where farmers, students, and experts can share agricultural resources, knowledge, and research.",
+        technologies: [
+            "Next.js",
+            "React",
+            "Express.js",
+            "Node.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "MongoDB",
+            "Better Auth",
+            "JWT",
+        ],
+        live: "https://agrolink-nine-pied.vercel.app",
+        github: "https://github.com/diponkorroy064-max/AgroLink",
+        challenges: "Designed multiple user roles, secure authentication, resource management and responsive dashboards.",
+        future: "AI chatbot, expert booking system, crop disease prediction, and multilingual support.",
+    },
+
+    {
+        id: 700,
+        title: "AgroMart AI",
+        image: "/images/projects/agromartai.jpg",
+        category: "full stack",
+        description:
+            "A modern agricultural marketplace where farmers can purchase seeds, fertilizers, pesticides, seedlings, farming tools, machinery, and other essential products from trusted sellers.",
+
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "JWT",
+            "Multer",
+        ],
+
+        live: "https://agromartai-client.vercel.app",
+
+        github:
+            "https://github.com/diponkorroy064-max/AgroMart-AI-client-",
+
+        challenges:
+            "Implemented role-based authentication for farmers, sellers, and admins, along with product management, order management, image uploads, responsive dashboards, and secure REST APIs.",
+
+        future:
+            "Integrate AI-powered crop recommendations, personalized product suggestions, online payment, real-time order tracking, notifications, and smart farming assistance.",
+    },
+
+    // {
+    //     id: 800,
+    //     title: "GreenHarvest",
+    //     image: "/images/projects/greenharvest.png",
+    //     category: "full stack",
+    //     description: "A modern agriculture marketplace where farmers can sell agricultural products and buyers can browse, order, and securely purchase online.",
+
+    //     technologies: [
+    //         "Next.js",
+    //         "React",
+    //         "Tailwind CSS",
+    //         "Node.js",
+    //         "Express.js",
+    //         "MongoDB",
+    //         "JWT",
+    //     ],
+    //     live: "https://greenharvest.vercel.app",
+    //     github:
+    //         "https://github.com/yourusername/greenharvest-client",
+    //     challenges:
+    //         "Implemented authentication, role-based dashboard, product management, and responsive UI while maintaining clean component architecture.",
+    //     future:
+    //         "Integrate AI-based crop recommendations, online payment, real-time notifications, and order tracking.",
+    // },
 ];
 
 export default projects;

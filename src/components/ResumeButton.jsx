@@ -1,9 +1,8 @@
 import { Download, Eye } from "lucide-react";
 
-
 export default function ResumeButton({
     type = "download",
-    href = "/resume/Diponkor_Roy-Resume.pdf",
+    href = "/resume/Diponkor_Roy_Full_Stack_Developer_Resume.pdf",
     className = "",
 }) {
     const isDownload = type === "download";
