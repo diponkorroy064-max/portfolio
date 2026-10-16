@@ -1,9 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import Navbar from "@/sections/Navbar/Navbar";
-import Footer from "@/sections/Footer/Footer";
-
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,26 +21,32 @@ export const metadata = {
     "Diponkor Roy",
     "Portfolio",
     "Frontend Developer",
-    "MERN Stack",
-    "React",
-    "Next.js",
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "React Developer",
+    "Next.js Developer",
     "JavaScript",
     "Web Developer",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/icon.png",
+  },
 };
 
+// app/layout.js
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar id="navbar" />
-        {children}
-        <Footer />
-        <Toaster position="top-right" richColors />
+    <html lang="en" className="h-full antialiased scroll-smooth" suppressHydrationWarning>
+      <body className="min-h-full bg-[#0e0f12] text-white transition-colors duration-300">
+        <ThemeProvider defaultTheme="dark">
+          {children}
+          <Toaster richColors position="bottom-right" />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-

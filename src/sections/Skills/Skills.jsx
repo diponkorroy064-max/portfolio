@@ -2,84 +2,68 @@
 import { motion } from "framer-motion";
 import skills from "@/data/skills";
 
-
 export default function Skills() {
     return (
-        <section
-            id="skills"
-            className="py-12 bg-slate-950 text-white px-6 lg:px-12">
-            <div className="max-w-7xl mx-auto">
-
-                {/* Heading */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: .6 }}
-                    viewport={{ once: true }}
-                    className="text-center">
-                    <p className="text-sky-400 text-lg font-semibold">
-                        My Expertise
+        <section id="skills" className="space-y-10">
+            {/* Section Header */}
+            <div>
+                <div className="flex items-center gap-3">
+                    <span className="w-8 h-0.5 bg-[#6fc844]" />
+                    <p className="text-xs uppercase tracking-widest text-[#6fc844] font-bold">
+                        Capabilities & Stack
                     </p>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                    <span className="text-[#6fc844]">Technical</span> Skills
+                </h2>
+            </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold mt-3">
-                        Technical Skills
-                    </h2>
+            {/* Categories Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {skills.map((category, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-[#16171b] rounded-2xl p-6 border border-zinc-800/80 hover:border-zinc-700 transition-colors shadow-lg flex flex-col justify-between"
+                    >
+                        <div>
+                            <div className="flex items-center justify-between pb-3 mb-5 border-b border-zinc-800">
+                                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-[#6fc844]" />
+                                    {category.category}
+                                </h3>
+                                <span className="text-xs font-semibold text-zinc-400">
+                                    {category.items.length} Skills
+                                </span>
+                            </div>
 
-                    <div className="w-24 h-1 bg-sky-500 mx-auto rounded-full mt-5"></div>
-                </motion.div>
-
-                
-                {/* Categories */}
-                <div className="grid md:grid-cols-2 gap-8 mt-10">
-
-                    {skills.map((category, index) => (
-
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: .6,
-                                delay: index * .2,
-                            }}
-                            viewport={{ once: true }}
-                            className="bg-slate-900 rounded-3xl p-8 border border-slate-800">
-
-                            <h3 className="text-2xl font-bold text-sky-400 mb-8">
-                                {category.category}
-                            </h3>
-
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
-
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                 {category.items.map((skill, i) => {
-
                                     const Icon = skill.icon;
-
                                     return (
                                         <motion.div
                                             key={i}
-                                            whileHover={{
-                                                y: -8,
-                                                scale: 1.05,
-                                            }}
-                                            className="bg-slate-800 rounded-xl p-5 text-center border border-slate-700 hover:border-sky-500 transition">
-
+                                            whileHover={{ y: -4, scale: 1.02 }}
+                                            className="bg-[#121316] rounded-xl p-3 text-center border border-zinc-800/80 hover:border-[#6fc844]/60 hover:shadow-md hover:shadow-[#6fc844]/10 transition-all duration-200 group cursor-default"
+                                        >
                                             <Icon
-                                                size={38}
-                                                className="mx-auto text-sky-400 mb-4"/>
-
-                                            <h4 className="text-gray-300 font-medium">
+                                                size={28}
+                                                className="mx-auto text-zinc-400 group-hover:text-[#6fc844] group-hover:scale-110 transition-all duration-200 mb-2"
+                                            />
+                                            <h4 className="text-xs font-medium text-zinc-300 group-hover:text-white transition-colors truncate">
                                                 {skill.name}
                                             </h4>
                                         </motion.div>
                                     );
                                 })}
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );
 }
-

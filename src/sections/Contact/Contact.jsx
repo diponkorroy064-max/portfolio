@@ -1,12 +1,10 @@
 "use client";
-import SocialLinks from "@/components/SocialLinks";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import Link from "next/link";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
+import { Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
+import { toast } from "sonner";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -22,22 +20,21 @@ export default function Contact() {
             [e.target.name]: e.target.value,
         });
     };
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const message = `*New Portfolio Contact* 
-        👤 Name: ${formData.name} 
-        📧 Email: ${formData.email} 
-        📝 Subject: ${formData.subject} 
-        💬 Message: ${formData.message}`;
+👤 Name: ${formData.name} 
+📧 Email: ${formData.email} 
+📝 Subject: ${formData.subject} 
+💬 Message: ${formData.message}`;
 
-        const phone = "+8801744533593"; // Your WhatsApp number (without +)
+        const phone = "8801744533593"; // WhatsApp number
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
 
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
+        toast.success("Opening WhatsApp with your message!");
 
-        // Clear form after opening WhatsApp---
         setFormData({
             name: "",
             email: "",
@@ -46,175 +43,183 @@ export default function Contact() {
         });
     };
 
-    // console.log("formData by whatsApp", formData);
+    const contactChannels = [
+        {
+            icon: Mail,
+            title: "Email Address",
+            value: "diponkorroy064@gmail.com",
+            link: "https://mail.google.com/mail/?view=cm&fs=1&to=diponkorroy064@gmail.com",
+            isExternal: true,
+        },
+        {
+            icon: Phone,
+            title: "Phone / WhatsApp",
+            value: "+880 1744533593",
+            link: "https://wa.me/8801744533593",
+            isExternal: true,
+        },
+        {
+            icon: MapPin,
+            title: "Location",
+            value: "Dhaka-1207, Bangladesh",
+            link: null,
+            isExternal: false,
+        },
+    ];
 
     return (
-        <section
-            id="contact"
-            className="bg-slate-900 py-12 px-6 lg:px-12 text-white">
-            <div className="max-w-7xl mx-auto">
-                {/* Heading */}
-
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center">
-                    <p className="text-sky-400 font-semibold text-lg">
-                        Get In Touch
+        <section id="contact" className="space-y-10">
+            {/* Section Header */}
+            <div>
+                <div className="flex items-center gap-3">
+                    <span className="w-8 h-0.5 bg-[#6fc844]" />
+                    <p className="text-xs uppercase tracking-widest text-[#6fc844] font-bold">
+                        Let&apos;s Connect
                     </p>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                    <span className="text-[#6fc844]">Get In</span> Touch
+                </h2>
+            </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold mt-3">
-                        Contact Me
-                    </h2>
-
-                    <div className="w-24 h-1 bg-sky-500 rounded-full mx-auto mt-5"></div>
-
-                    <p className="text-gray-400 mt-6 max-w-5xl mx-auto">
-                        Interested in working together or have any questions?
-                        Feel free to reach out through the contact form or
-                        directly using the information below.
-                    </p>
-                </motion.div>
-
-                <div className="grid lg:grid-cols-2 gap-16 mt-10">
-
-                    {/* Left Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: .7 }}
-                        viewport={{ once: true }}
-                        className="space-y-8">
-
-                        
-                        {/* Email */}
-                        <Link
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=diponkorroy064@gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block">
-                            <div className="flex items-center gap-5 bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-sky-500 hover:bg-slate-700 transition-all duration-300 cursor-pointer">
-
-                                <div className="bg-sky-500 p-4 rounded-full">
-                                    <Mail size={24} />
-                                </div>
-
-                                <div>
-                                    <h3 className="font-semibold text-xl">
-                                        Email
-                                    </h3>
-
-                                    <p className="text-gray-400">
-                                        diponkorroy064@gmail.com
-                                    </p>
-                                </div>
-
+            {/* Contact Channels Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {contactChannels.map((item, index) => {
+                    const Icon = item.icon;
+                    const content = (
+                        <div className="bg-[#16171b] border border-zinc-800/80 hover:border-[#6fc844]/50 rounded-2xl p-5 transition-all duration-300 shadow-lg group h-full flex flex-col justify-center items-center text-center">
+                            <div className="p-3 rounded-xl bg-[#121316] border border-zinc-800 group-hover:border-[#6fc844]/40 group-hover:bg-[#6fc844]/10 transition-colors mb-3">
+                                <Icon className="w-5 h-5 text-[#6fc844]" />
                             </div>
-                        </Link>
-
-                        
-                        {/* Phone */}
-                        <div className="flex items-center gap-5 bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-sky-500 transition">
-
-                            <div className="bg-sky-500 p-4 rounded-full">
-                                <Phone size={24} />
-                            </div>
-
-                            <div>
-                                <h3 className="font-semibold text-xl">
-                                    Phone
-                                </h3>
-
-                                <p className="text-gray-400">
-                                    +880 1744533593
-                                </p>
-                            </div>
+                            <h3 className="text-xs font-semibold text-zinc-400">
+                                {item.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm font-bold text-white mt-1 group-hover:text-[#6fc844] transition-colors break-all">
+                                {item.value}
+                            </p>
                         </div>
+                    );
 
-                        
-                        {/* Location */}
-                        <div className="flex items-center gap-5 bg-slate-800 p-5 rounded-2xl border border-slate-700 hover:border-sky-500 transition">
-                            <div className="bg-sky-500 p-4 rounded-full">
-                                <MapPin size={24} />
-                            </div>
+                    if (item.link) {
+                        return (
+                            <Link
+                                key={index}
+                                href={item.link}
+                                target={item.isExternal ? "_blank" : undefined}
+                                rel={item.isExternal ? "noopener noreferrer" : undefined}
+                                className="block h-full"
+                            >
+                                {content}
+                            </Link>
+                        );
+                    }
+                    return <div key={index}>{content}</div>;
+                })}
+            </div>
 
-                            <div>
-                                <h3 className="font-semibold text-xl">
-                                    Location
-                                </h3>
+            {/* Direct Message Form */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-[#16171b] rounded-2xl border border-zinc-800/80 p-6 sm:p-8 shadow-xl"
+            >
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-zinc-800">
+                    <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                        <MessageCircle className="w-5 h-5 text-[#6fc844]" />
+                        <span>Send Me a Direct Message</span>
+                    </h3>
+                    <span className="hidden sm:inline-block text-xs font-bold text-[#6fc844] bg-[#6fc844]/10 px-3 py-1 rounded-full border border-[#6fc844]/20">
+                        Fast Response
+                    </span>
+                </div>
 
-                                <p className="text-gray-400">
-                                    Dhaka-1207, Bangladesh
-                                </p>
-                            </div>
-                        </div>
-
-                        
-                        {/* Social */}
-                        <SocialLinks></SocialLinks>
-
-                        {/* <div className="flex gap-5">
-                            <a href="https://github.com/yourusername"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-14 h-14 rounded-full bg-slate-800 border border-slate-700 hover:bg-sky-500 flex items-center justify-center transition">
-                                <FaGithub/>
-                            </a>
-
-                            <a href="https://linkedin.com/in/yourusername"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-14 h-14 rounded-full bg-slate-800 border border-slate-700 hover:bg-sky-500 flex items-center justify-center transition">
-                                <FaLinkedin/>
-                            </a>
-                        </div> */}
-                    </motion.div>
-
-                    
-                    {/* Contact Form */}
-                    <motion.form
-                        onSubmit={handleSubmit}
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: .7 }}
-                        viewport={{ once: true }}
-                        className="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <input type="text"
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-xs font-semibold text-zinc-400 mb-1.5">
+                                Your Name
+                            </label>
+                            <input
+                                type="text"
                                 name="name"
+                                required
                                 value={formData.name}
                                 onChange={handleChange}
-                                placeholder="Your Name" className="bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-sky-500"/>
-
-                            <input type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="Your Email"
-                                className="bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-sky-500" />
+                                placeholder="e.g. Alex Smith"
+                                className="w-full bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                            />
                         </div>
 
-                        <input type="text"
+                        <div>
+                            <label className="block text-xs font-semibold text-zinc-400 mb-1.5">
+                                Your Email
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                required
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="e.g. alex@company.com"
+                                className="w-full bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-400 mb-1.5">
+                            Subject
+                        </label>
+                        <input
+                            type="text"
                             name="subject"
+                            required
                             value={formData.subject}
                             onChange={handleChange}
-                            placeholder="Subject" className="w-full mt-6 bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-sky-500"/>
+                            placeholder="e.g. Project Inquiry / Opportunity"
+                            className="w-full bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                        />
+                    </div>
 
-                        <textarea rows="6" name="message"
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-400 mb-1.5">
+                            Message
+                        </label>
+                        <textarea
+                            rows={4}
+                            name="message"
+                            required
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Your Message"
-                            className="w-full mt-6 bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:border-sky-500 resize-none"></textarea>
+                            placeholder="Write your project details or message here..."
+                            className="w-full bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors resize-none"
+                        />
+                    </div>
 
-                        <button type="submit" className="mt-8 w-full bg-sky-500 hover:bg-sky-600 transition py-4 rounded-xl font-semibold flex items-center justify-center gap-3 cursor-pointer">
-                            <Send size={20} />
-                            Send Message
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                        <button
+                            type="submit"
+                            className="w-full sm:w-auto bg-[#6fc844] hover:bg-[#5eb537] text-black font-bold py-3.5 px-8 rounded-xl text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-lg shadow-[#6fc844]/20 flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <Send size={15} />
+                            Send Message (WhatsApp)
                         </button>
-                    </motion.form>
-                </div>
+
+                        <div className="flex items-center gap-3 text-xs text-zinc-400">
+                            <span>Or reach directly via email</span>
+                        </div>
+                    </div>
+                </form>
+            </motion.div>
+
+            {/* Social Channels Footer Row */}
+            <div className="pt-4 flex flex-col items-center justify-center gap-3">
+                <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">
+                    Follow & Connect
+                </p>
+                <SocialLinks />
             </div>
         </section>
     );

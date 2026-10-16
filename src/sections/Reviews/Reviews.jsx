@@ -1,20 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, MessageSquareQuote, Send } from "lucide-react";
 import defaultReviews from "@/data/reviews";
 import { useEffect, useState } from "react";
 import { createReview, getReviews } from "@/lib/review/review";
 import { toast } from "sonner";
-
 
 export default function Reviews() {
     const [formData, setFormData] = useState({
         name: "",
         company: "",
         email: "",
-        rating: "",
+        rating: "5",
         review: "",
     });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -25,6 +26,7 @@ export default function Reviews() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         try {
             const result = await createReview(formData);
@@ -36,24 +38,23 @@ export default function Reviews() {
                     name: "",
                     company: "",
                     email: "",
-                    rating: "",
+                    rating: "5",
                     review: "",
                 });
             }
         } catch (error) {
             console.error(error);
             toast.error("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
-    // console.log("form data from review section", formData);
-
 
     const [review, setReview] = useState([]);
     useEffect(() => {
         const fetchReviews = async () => {
             try {
                 const result = await getReviews();
-
                 if (result.success) {
                     setReview(result.data);
                 }
@@ -63,138 +64,144 @@ export default function Reviews() {
         };
         fetchReviews();
     }, []);
-    console.log("review", review);
 
     const displayReviews = review.length > 0 ? review : defaultReviews;
 
-
     return (
-        <section id="reviews"
-            className="bg-slate-950 py-12 px-6 lg:px-12 text-white">
-            <div className="max-w-7xl mx-auto">
-
-                {/* Heading */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center">
-                    <p className="text-sky-400 text-lg font-semibold">
-                        Feedback
+        <section id="reviews" className="space-y-10">
+            {/* Section Header */}
+            <div>
+                <div className="flex items-center gap-3">
+                    <span className="w-8 h-0.5 bg-[#6fc844]" />
+                    <p className="text-xs uppercase tracking-widest text-[#6fc844] font-bold">
+                        Testimonials & Recommendations
                     </p>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                    <span className="text-[#6fc844]">Client</span> Feedback
+                </h2>
+            </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold mt-3">
-                        Reviews & Suggestions
-                    </h2>
+            {/* Review Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {displayReviews.map((item, index) => (
+                    <motion.div
+                        key={item.id || item._id || index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -4 }}
+                        className="bg-[#16171b] border border-zinc-800/80 hover:border-[#6fc844]/50 rounded-2xl p-6 transition-all duration-300 shadow-lg flex flex-col justify-between relative group"
+                    >
+                        <MessageSquareQuote className="absolute top-4 right-4 w-7 h-7 text-zinc-800 group-hover:text-[#6fc844]/30 transition-colors pointer-events-none" />
 
-                    <div className="w-24 h-1 bg-sky-500 mx-auto mt-5 rounded-full"></div>
-
-                    <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-                        I value constructive feedback. Feel free to share your
-                        thoughts about my portfolio, Projects and suggest improvements.
-                    </p>
-                </motion.div>
-
-                
-                {/* Review Cards */}
-                <div className="grid lg:grid-cols-3 gap-8 mt-10">
-                    {displayReviews.map((review, index) => (
-                        <motion.div
-                            key={review.id  || review._id}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                delay: index * 0.2,
-                            }}
-                            viewport={{ once: true }}
-                            whileHover={{ y: -8 }}
-                            className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-sky-500 transition">
-                            
-                            <div className="flex gap-1 text-yellow-400 mb-4">
-                                {[...Array(Number(review.rating))].map((_, i) => (
-                                    <Star
-                                        key={i}
-                                        size={18}
-                                        fill="currentColor"
-                                    />
+                        <div>
+                            {/* Stars */}
+                            <div className="flex items-center gap-1 text-[#6fc844] mb-3">
+                                {[...Array(Number(item.rating || 5))].map((_, i) => (
+                                    <Star key={i} size={15} fill="currentColor" />
                                 ))}
                             </div>
 
-                            <p className="text-gray-300 leading-7">
-                                {review.review}
+                            <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed italic">
+                                &ldquo;{item.review}&rdquo;
                             </p>
+                        </div>
 
-                            <div className="mt-6 border-t border-slate-700 pt-4">
-                                <h4 className="font-semibold text-lg">
-                                    {review.name}
+                        <div className="mt-5 pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                            <div>
+                                <h4 className="font-bold text-sm text-white">
+                                    {item.name}
                                 </h4>
-
-                                <p className="text-sky-400 text-sm">
-                                    {review.company}
+                                <p className="text-xs text-[#6fc844]">
+                                    {item.company}
                                 </p>
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-
-                {/* Review Form */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="mt-15 bg-slate-900 rounded-3xl border border-slate-800 p-8">
-                    <h3 className="text-3xl font-bold text-center mb-8">
-                        Leave a Review
-                    </h3>
-
-                    <form className="grid gap-6" onSubmit={handleSubmit}>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Your Name"
-                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500" />
-
-                            <input
-                                name="company"
-                                value={formData.company}
-                                onChange={handleChange}
-                                type="text"
-                                placeholder="Company / Organization"
-                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500" />
                         </div>
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <input name="email" value={formData.email} onChange={handleChange} type="email"
-                                placeholder="Email Address" className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"/>
-
-                            <select name="rating" value={formData.rating}
-                                onChange={handleChange}
-                                className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500">
-                                <option value="">Rating</option>
-                                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
-                                <option value="4">⭐⭐⭐⭐ (4)</option>
-                                <option value="3">⭐⭐⭐ (3)</option>
-                                <option value="2">⭐⭐ (2)</option>
-                                <option value="1">⭐ (1)</option>
-                            </select>
-                        </div>
-
-                        <textarea name="review" value={formData.review} onChange={handleChange} rows={4} placeholder="Write your review..." className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-sky-500"></textarea>
-
-                        <button type="submit" className="bg-sky-500 hover:bg-sky-600 transition py-4 rounded-xl font-semibold cursor-pointer">
-                            Submit Review
-                        </button>
-                    </form>
-                </motion.div>
+                    </motion.div>
+                ))}
             </div>
+
+            {/* Leave a Review Form */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-[#16171b] rounded-2xl border border-zinc-800/80 p-6 sm:p-8 shadow-xl"
+            >
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <span className="text-[#6fc844]">Leave</span> a Review or Feedback
+                </h3>
+
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Your Name"
+                            className="bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                        />
+
+                        <input
+                            type="text"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            placeholder="Company or Designation"
+                            className="bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                        />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Email Address"
+                            className="bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors"
+                        />
+
+                        <select
+                            name="rating"
+                            value={formData.rating}
+                            onChange={handleChange}
+                            className="bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-300 outline-none focus:border-[#6fc844] transition-colors"
+                        >
+                            <option value="5">⭐⭐⭐⭐⭐ (5 Stars - Exceptional)</option>
+                            <option value="4">⭐⭐⭐⭐ (4 Stars - Very Good)</option>
+                            <option value="3">⭐⭐⭐ (3 Stars - Good)</option>
+                            <option value="2">⭐⭐ (2 Stars)</option>
+                            <option value="1">⭐ (1 Star)</option>
+                        </select>
+                    </div>
+
+                    <textarea
+                        name="review"
+                        required
+                        value={formData.review}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Write your constructive feedback or project recommendation..."
+                        className="w-full bg-[#121316] border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-[#6fc844] transition-colors resize-none"
+                    />
+
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="bg-[#6fc844] hover:bg-[#5eb537] text-black font-bold py-3 px-6 rounded-xl text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-md shadow-[#6fc844]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    >
+                        <Send size={15} />
+                        {isSubmitting ? "Submitting..." : "Submit Feedback"}
+                    </button>
+                </form>
+            </motion.div>
         </section>
     );
 }
-

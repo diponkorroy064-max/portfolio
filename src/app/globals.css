@@ -1,1 +1,233 @@
 @import "tailwindcss";
+
+::selection {
+  background-color: #6fc844;
+  color: #0e0f12;
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0f12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6fc844;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6fc844;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.16;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+/* ======================================================== */
+/* Light Mode Theme Styles                                 */
+/* ======================================================== */
+html.light body {
+  background-color: #f0f2f5 !important;
+  color: #111827 !important;
+}
+
+html.light ::selection {
+  background-color: #6fc844;
+  color: #ffffff;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f0f2f5;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+html.light .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+html.light .bg-\[\#0e0f12\] {
+  background-color: #f0f2f5 !important;
+}
+
+html.light .bg-\[\#121316\],
+html.light .bg-\[\#121316\]\/95,
+html.light .bg-\[\#121316\]\/90 {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-\[\#16171b\] {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-zinc-900,
+html.light .bg-zinc-900\/90,
+html.light .bg-zinc-900\/80,
+html.light .bg-zinc-900\/60 {
+  background-color: #f1f3f7 !important;
+}
+
+html.light .border-zinc-800,
+html.light .border-zinc-800\/90,
+html.light .border-zinc-800\/80,
+html.light .border-zinc-800\/60,
+html.light .border-zinc-800\/40 {
+  border-color: #d4d4d8 !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-zinc-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-zinc-300 {
+  color: #334155 !important;
+}
+
+html.light .text-zinc-400 {
+  color: #64748b !important;
+}
+
+html.light .text-zinc-500 {
+  color: #94a3b8 !important;
+}
+
+html.light .shadow-2xl {
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ======================================================== */
+/* RyanCV Theme Split Resume Button                        */
+/* ======================================================== */
+.ryan-split-btn {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 0.75rem;
+  border: 2px solid #6fc844;
+  background-color: #6fc844;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(111, 200, 68, 0.22);
+  transition: all 0.25s ease;
+}
+
+.ryan-split-btn:hover {
+  box-shadow: 0 6px 20px rgba(111, 200, 68, 0.38);
+}
+
+.ryan-split-btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.15rem;
+  font-weight: 900;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000000 !important;
+  background-color: #6fc844;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ryan-split-btn-text:hover {
+  background-color: #5eb537;
+}
+
+.ryan-split-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.7rem;
+  background-color: #16171b;
+  color: #6fc844 !important;
+  border-left: 2px solid #6fc844;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.ryan-split-btn-icon:hover {
+  background-color: #6fc844 !important;
+  color: #000000 !important;
+}
+
+html.light .ryan-split-btn-icon {
+  background-color: #ffffff !important;
+  color: #3f901c !important;
+}
+
+html.light .ryan-split-btn-icon:hover {
+  background-color: #6fc844 !important;
+  color: #000000 !important;
+}
+
+/* ======================================================== */
+/* About Section Academic Callout Box                       */
+/* ======================================================== */
+.about-academic-callout {
+  background: linear-gradient(135deg, rgba(111, 200, 68, 0.08) 0%, rgba(18, 19, 22, 0.6) 100%);
+  border-color: rgba(111, 200, 68, 0.3);
+  border-left-color: #6fc844;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+}
+
+.about-callout-tag {
+  color: #6fc844;
+}
+
+.about-callout-uni {
+  color: #6fc844;
+}
+
+html.light .about-academic-callout {
+  background: linear-gradient(135deg, rgba(111, 200, 68, 0.12) 0%, #ffffff 100%) !important;
+  border-color: rgba(111, 200, 68, 0.35) !important;
+  border-left-color: #499924 !important;
+  box-shadow: 0 4px 15px -2px rgba(111, 200, 68, 0.08) !important;
+}
+
+html.light .about-callout-tag {
+  color: #2e7d17 !important;
+}
+
+html.light .about-callout-uni {
+  color: #236810 !important;
+}

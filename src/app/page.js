@@ -1,53 +1,34 @@
-import Hero from "@/sections/Hero/Hero";
-import About from "@/sections/About/About";
-import Skills from "@/sections/Skills/Skills";
-import Education from "@/sections/Education/Education";
-import Projects from "@/sections/Projects/Projects";
-import Reviews from "@/sections/Reviews/Reviews";
-import Contact from "@/sections/Contact/Contact";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
 
-
+// Server-Side SEO Metadata (App Router SSR)
 export const metadata = {
-  title: "Diponkor Roy | Frontend Developer (MERN Stack)",
+  title: "Diponkor Roy | Full Stack & MERN Stack Developer",
   description:
-    "Professional portfolio of Diponkor Roy, a Frontend Developer specializing in the MERN Stack, Next.js, React, and modern web technologies.",
+    "Professional portfolio dashboard of Diponkor Roy. Full Stack & MERN Stack Developer specialized in React.js, Next.js, Node.js, Express.js, MongoDB, and modern web application development.",
+  keywords: [
+    "Diponkor Roy",
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Software Engineer",
+    "Portfolio",
+    "Dhaka Bangladesh",
+  ],
+  authors: [{ name: "Diponkor Roy", url: "https://github.com/diponkorroy064-max" }],
+  creator: "Diponkor Roy",
+  openGraph: {
+    title: "Diponkor Roy | Full Stack & MERN Stack Developer",
+    description:
+      "Explore the portfolio, production projects, and technical skills of Diponkor Roy, a Full Stack Developer building scalable, modern web applications.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Diponkor Roy Portfolio",
+  },
 };
 
-
+// 100% Server Component (Server-Side Rendering)
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
-      <section id="home">
-        <Hero />
-      </section>
-
-      <section id="about">
-        <About />
-      </section>
-
-      <section id="skills">
-        <Skills />
-      </section>
-
-      <section id="projects">
-        <Projects />
-      </section>
-
-      {/*<section id="resume">
-        <Resume />
-      </section> */}
-
-      <section id="contact">
-        <Contact />
-      </section>
-
-      <section id="reviews">
-        <Reviews />
-      </section>
-
-      <section id="education">
-        <Education />
-      </section>
-    </main>
-  );
+  return <DashboardLayout />;
 }

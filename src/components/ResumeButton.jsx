@@ -13,12 +13,12 @@ export default function ResumeButton({
             {...(isDownload ? { download: true } : {})}
             target={isDownload ? "_self" : "_blank"}
             rel={isDownload ? undefined : "noopener noreferrer"}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-600 text-white font-semibold transition-all duration-300 ${className}`}
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#6fc844] hover:bg-[#5eb537] text-black font-bold transition-all duration-300 shadow-md shadow-[#6fc844]/20 hover:shadow-lg hover:shadow-[#6fc844]/30 ${className}`}
         >
             {isDownload ? (
                 <>
                     <Download size={18} />
-                    Download Resume
+                    Download CV
                 </>
             ) : (
                 <>
