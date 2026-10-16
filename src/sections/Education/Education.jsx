@@ -113,7 +113,7 @@ export default function Education() {
                                 className="relative bg-[#16171b] border border-zinc-800/80 rounded-2xl p-5 hover:border-[#6fc844]/40 transition-colors shadow-lg"
                             >
                                 {/* Glowing dot on timeline */}
-                                <div className="absolute -left-[31px] top-6 w-3 h-3 rounded-full bg-[#6fc844] ring-4 ring-[#121316]" />
+                                <div className="absolute -left-7.75 top-6 w-3 h-3 rounded-full bg-[#6fc844] ring-4 ring-[#121316]" />
 
                                 <div className="flex flex-wrap items-center justify-between gap-2">
                                     <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#6fc844]/10 text-[#6fc844] border border-[#6fc844]/20">
@@ -167,7 +167,7 @@ export default function Education() {
                                 className="relative bg-[#16171b] border border-zinc-800/80 rounded-2xl p-5 hover:border-[#6fc844]/40 transition-colors shadow-lg"
                             >
                                 {/* Glowing dot on timeline */}
-                                <div className="absolute -left-[31px] top-6 w-3 h-3 rounded-full bg-[#6fc844] ring-4 ring-[#121316]" />
+                                <div className="absolute -left-7.75 top-6 w-3 h-3 rounded-full bg-[#6fc844] ring-4 ring-[#121316]" />
 
                                 <div className="flex flex-wrap items-center justify-between gap-2">
                                     <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#6fc844]/10 text-[#6fc844] border border-[#6fc844]/20">
@@ -234,7 +234,7 @@ export default function Education() {
                                     whileInView={{ width: `${bar.percentage}%` }}
                                     transition={{ duration: 1, delay: i * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="h-full bg-gradient-to-r from-[#6fc844]/80 to-[#6fc844] rounded-full"
+                                    className="h-full bg-linear-to-r from-[#6fc844]/80 to-[#6fc844] rounded-full"
                                 />
                             </div>
                         </div>

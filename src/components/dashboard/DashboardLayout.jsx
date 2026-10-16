@@ -50,6 +50,14 @@ export default function DashboardLayout() {
     if (contentScrollRef.current) {
       contentScrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+    // On mobile devices, smoothly scroll down to the active content section
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      const mainElement = document.querySelector("main");
+      if (mainElement) {
+        mainElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   return (
@@ -126,8 +134,8 @@ export default function DashboardLayout() {
       {/* ======================================================== */}
       {/* 2. MAIN DASHBOARD CONTAINER (Desktop Full Screen View)    */}
       {/* ======================================================== */}
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 flex-1 flex flex-col lg:h-full lg:overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch flex-1 lg:h-full lg:overflow-hidden">
+      <div className="w-full max-w-[1600px] mx-auto p-3 sm:p-4 lg:p-4 flex-1 flex flex-col lg:h-full lg:overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-4 items-stretch flex-1 lg:h-full lg:overflow-hidden">
 
           {/* ======================================================== */}
           {/* LEFT SIDE: FIXED PROFILE SIDEBAR (Never Scrolls!)       */}
@@ -151,7 +159,7 @@ export default function DashboardLayout() {
               </div>
 
               {/* Profile Photo */}
-              <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800/90 mb-3.5 group shadow-lg">
+              <div className="relative w-full aspect-square max-w-70 sm:max-w-[320px] lg:max-w-85 xl:max-w-90 mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800/90 mb-3.5 group shadow-lg">
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
                 <Image
                   src="/images/diponkor.png"
@@ -216,7 +224,7 @@ export default function DashboardLayout() {
                 </div>
                 <div className="flex justify-between items-center py-1">
                   <span className="font-medium text-zinc-400">Email</span>
-                  <span className="font-semibold text-zinc-200 truncate max-w-[170px]" title="diponkorroy064@gmail.com">
+                  <span className="font-semibold text-zinc-200 truncate max-w-42.5" title="diponkorroy064@gmail.com">
                     diponkorroy064@gmail.com
                   </span>
                 </div>
@@ -229,9 +237,9 @@ export default function DashboardLayout() {
           {/* ======================================================== */}
           <main className="lg:col-span-7 xl:col-span-8 flex flex-col bg-[#121316] border border-zinc-800/80 rounded-none shadow-2xl overflow-hidden lg:h-full">
             
-            {/* Top Navigation Bar: Pinned & Always Visible */}
-            <div className="p-4 sm:p-5 border-b border-zinc-800/80 bg-[#121316]/95 backdrop-blur-md shrink-0 flex items-center justify-between gap-2 z-20">
-              <nav className="flex flex-wrap items-center gap-2">
+            {/* Top Navigation Bar: Pinned & Always Visible on Desktop (Hidden on Small Devices) */}
+            <div className="hidden lg:flex px-4 py-3 sm:px-5 sm:py-3.5 border-b border-zinc-800/80 bg-[#121316]/95 backdrop-blur-md shrink-0 items-center justify-between gap-2 z-20">
+              <nav className="flex items-center gap-1.5 xl:gap-2 flex-wrap xl:flex-nowrap">
                 {navTabs.map((tab) => {
                   const Icon = tab.icon;
                   const isActive = activeTab === tab.id;
@@ -239,7 +247,7 @@ export default function DashboardLayout() {
                     <button
                       key={tab.id}
                       onClick={() => handleTabChange(tab.id)}
-                      className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer border ${
+                      className={`flex items-center gap-1.5 px-3 xl:px-4 py-1.5 sm:py-2 rounded-full text-[11px] xl:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer border ${
                         isActive
                           ? "text-black bg-[#6fc844] border-[#6fc844] shadow-md shadow-[#6fc844]/25 scale-105"
                           : "text-zinc-400 border-zinc-800/80 hover:text-white hover:border-zinc-700 bg-zinc-900/60"

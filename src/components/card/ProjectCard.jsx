@@ -24,7 +24,7 @@ export default function ProjectCard({ project, index = 0, setSelectedProject }) 
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#16171b] via-transparent to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#16171b] via-transparent to-transparent opacity-80 pointer-events-none" />
 
                 {/* Category Badge */}
                 {project.category && (

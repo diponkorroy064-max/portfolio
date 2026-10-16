@@ -63,7 +63,7 @@ export default function Hero() {
     return (
         <div className="bg-[#0b0c0e] text-white min-h-screen relative overflow-hidden font-sans">
             {/* ব্যাকগ্রাউন্ডে সূক্ষ্ম সবুজ নিয়ন আভা (Glowing Ambient Effect) */}
-            <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-[#6fc844]/10 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-10 left-1/4 w-125 h-125 bg-[#6fc844]/10 blur-[150px] rounded-full pointer-events-none" />
 
             {/* ১. শুধুমাত্র মোবাইলের জন্য স্টিকি টপ হেডার (ছবি ৪ অনুযায়ী) */}
             <header className="lg:hidden sticky top-0 z-50 flex items-center justify-between px-5 py-4 bg-[#0e0f12]/90 backdrop-blur-md border-b border-zinc-800/60">
@@ -104,7 +104,7 @@ export default function Hero() {
 
                         {/* প্রোফাইল ইমেজ কন্টেইনার */}
                         <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800/70 mb-6 group">
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none" />
                             <div className="absolute -top-10 -right-10 w-36 h-36 bg-[#6fc844]/25 blur-3xl rounded-full pointer-events-none" />
 
                             <Image
@@ -138,7 +138,7 @@ export default function Hero() {
                         <div className="w-full">
                             <ResumeButton
                                 type="download"
-                                className="w-full !bg-[#6fc844] hover:!bg-[#5eb537] !text-black font-bold !py-3.5 !rounded-xl !text-center transition-all duration-300 shadow-lg shadow-[#6fc844]/20 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base"
+                                className="w-full bg-[#6fc844]! hover:bg-[#5eb537]! text-black! font-bold py-3.5! rounded-xl! text-center! transition-all duration-300 shadow-lg shadow-[#6fc844]/20 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base"
                             />
                         </div>
                     </motion.aside>

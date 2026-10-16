@@ -75,7 +75,7 @@ export default function MobileHeader() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            className="lg:hidden sticky top-[61px] z-40 bg-[#121316]/95 backdrop-blur-xl border-b border-zinc-800 px-5 py-4 grid grid-cols-2 gap-2"
+            className="lg:hidden sticky top-15.25 z-40 bg-[#121316]/95 backdrop-blur-xl border-b border-zinc-800 px-5 py-4 grid grid-cols-2 gap-2"
           >
             {navTabs.map((tab) => {
               const Icon = tab.icon;
