@@ -22,7 +22,29 @@ const projects = [
         challenges: "Created advanced filtering, authentication, protected routes, and responsive property cards.",
         future: "Payment integration, wishlist, property reviews, and map-based searching.",
     },
-
+    {
+        id: 301,
+        title: "CrowdSpark",
+        image: "/images/projects/crowdspark.png",
+        category: "full stack",
+        description: "A full-featured crowdfunding platform where creators launch campaigns to raise funds, and supporters discover initiatives, pledge platform credits, and track contributions.",
+        technologies: [
+            "Next.js",
+            "React",
+            "Node.js",
+            "Express.js",
+            "JavaScript(ES6+)",
+            "Tailwind CSS",
+            "MongoDB",
+            "JWT",
+            "Stripe",
+            "Swiper.js"
+        ],
+        live: "https://crowdspark.vercel.app",
+        github: "https://github.com/diponkorroy064-max/crowdspark-client",
+        challenges: "Implementing multi-role authorization (Supporter, Creator, Admin), platform credit economics, contribution approval workflows, and interactive floating notifications.",
+        future: "Automated transactional email alerts (SendGrid/AWS SES), advanced aggregation-based campaign search, and community discussion threads for backers."
+    },
     {
         id: 400,
         title: "HireLoop",
@@ -49,8 +71,6 @@ const projects = [
         future:
             "Real-time notifications, AI-powered job recommendations, advanced analytics, interview scheduling, resume matching, and enhanced messaging features.",
     },
-
-
     {
         id: 500,
         title: "PetHaven",
@@ -73,7 +93,6 @@ const projects = [
         challenges: "Implemented secure JWT authentication, role-based dashboards, pet adoption request management, protected routes, image uploading, and responsive UI with dynamic filtering.",
         future: "Add Stripe payment integration for donations, AI-powered pet recommendations, real-time chat between adopters and shelters, and email notifications for adoption updates.",
     },
-
     {
         id: 600,
         title: "AgroLink",
@@ -127,31 +146,50 @@ const projects = [
         future:
             "Integrate AI-powered crop recommendations, personalized product suggestions, online payment, real-time order tracking, notifications, and smart farming assistance.",
     },
-
-    // {
-    //     id: 800,
-    //     title: "GreenHarvest",
-    //     image: "/images/projects/greenharvest.png",
-    //     category: "full stack",
-    //     description: "A modern agriculture marketplace where farmers can sell agricultural products and buyers can browse, order, and securely purchase online.",
-
-    //     technologies: [
-    //         "Next.js",
-    //         "React",
-    //         "Tailwind CSS",
-    //         "Node.js",
-    //         "Express.js",
-    //         "MongoDB",
-    //         "JWT",
-    //     ],
-    //     live: "https://greenharvest.vercel.app",
-    //     github:
-    //         "https://github.com/yourusername/greenharvest-client",
-    //     challenges:
-    //         "Implemented authentication, role-based dashboard, product management, and responsive UI while maintaining clean component architecture.",
-    //     future:
-    //         "Integrate AI-based crop recommendations, online payment, real-time notifications, and order tracking.",
-    // },
+    {
+        id: 800,
+        title: "Tiles Gallery",
+        image: "/images/projects/tiles-gallery.png",
+        category: "mern stack",
+        description:
+            "A modern tile discovery platform showcasing stylish and high-quality tile designs for homeowners, architects, and developers. Users can explore tile collections and manage their profiles through a responsive web application.",
+        technologies: [
+            "Next.js",
+            "React.js",
+            "JavaScript",
+            "Tailwind CSS",
+            "DaisyUI",
+            "HeroUI",
+            "MongoDB",
+            "Better Auth",
+            "Google OAuth",
+            "Vercel",
+        ],
+        live: "https://tiles-gallery-project-tan.vercel.app",
+        github: "https://github.com/diponkorroy064-max/Tiles-Gallery-Project",
+        challenges:
+            "Implemented Better Auth authentication, Google Sign-In, protected routes, conditional navbar rendering, MongoDB integration, responsive layouts, and loading and toast notifications.",
+        future:
+            "Add advanced tile filtering, product comparisons, favorites, detailed tile specifications, and an admin dashboard for managing tile collections.",
+    },
+    {
+        id: 900,
+        title: "ZENJI — Tactical Streetwear E-Commerce",
+        image: "/images/projects/zenji.png",
+        category: "frontend",
+        description: "A modern, high-performance e-commerce web application for tactical apparel and futuristic streetwear, featuring a cyberpunk-inspired UI and seamless shopping experience.",
+        technologies: [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "Lucide React",
+            "Vercel"
+        ],
+        live: "https://zenji-ecommerce.vercel.app",
+        github: "https://github.com/diponkorroy064-max/ZENJI-Ecommerce",
+        challenges: "Cyberpunk-inspired responsive UI, Interactive product image gallery with thumbnail swapping and zoom preview, Dynamic accordion and size guide, Size and color variant selection, Local storage cart persistence",
+        future: "Role based dashboard access, Interactive shopping workflows, Stock availability indicators, Shopping cart with real-time calculations, Shipping and returns information.",
+    }
 ];
 
 export default projects;

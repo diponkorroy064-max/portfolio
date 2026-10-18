@@ -23,6 +23,14 @@ const defaultReviews = [
         review:
             "Very professional portfolio. The animations are smooth, and the code structure appears well organized.",
     },
+    {
+        id: 4,
+        name: "Alex Martinez",
+        company: "Lead Developer",
+        rating: "5",
+        review:
+            "Clean architecture, modern UI design, and responsive layout across all devices. Exceptional attention to detail.",
+    },
 ];
 
 export default defaultReviews;

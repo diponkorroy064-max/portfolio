@@ -163,13 +163,8 @@ html.light .shadow-2xl {
   text-transform: uppercase;
   color: #000000 !important;
   background-color: #6fc844;
-  transition: background-color 0.2s ease;
   user-select: none;
-  cursor: pointer;
-}
-
-.ryan-split-btn-text:hover {
-  background-color: #5eb537;
+  cursor: default;
 }
 
 .ryan-split-btn-icon {

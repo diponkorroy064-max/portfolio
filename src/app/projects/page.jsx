@@ -9,7 +9,7 @@ import Link from "next/link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const projectsData = projects;
-const categories = ["All", "Full Stack", "MERN Stack"];
+const categories = ["All", "Full Stack", "MERN Stack", "Frontend"];
 
 export default function ProjectsPage() {
     const [selectedCategory, setSelectedCategory] = useState("All");

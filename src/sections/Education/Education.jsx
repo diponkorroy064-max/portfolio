@@ -2,47 +2,9 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Calendar, MapPin, CheckCircle, Code, Eye, Download } from "lucide-react";
 import education from "@/data/education";
+import { experiences, proficiencyBars } from "@/data/experience";
 
 export default function Education() {
-    const experiences = [
-        {
-            id: 1,
-            role: "Full Stack & MERN Developer",
-            organization: "Independent Projects & Freelance",
-            duration: "2023 - Present",
-            location: "Dhaka, Bangladesh",
-            description:
-                "Engineered responsive and scalable full-stack web platforms including StayNest, HireLoop, and PetHaven. Designed secure JWT & Better Auth workflows, role-based dashboards, RESTful APIs, and optimized database queries.",
-            highlights: [
-                "Built full-stack role-based dashboards with granular permission models.",
-                "Implemented Next.js server components, SSR/SSG, and dynamic routing.",
-                "Integrated MongoDB aggregation pipelines and RESTful API endpoints.",
-            ],
-        },
-        {
-            id: 2,
-            role: "Frontend Development Specialist",
-            organization: "Open Source & Web Development",
-            duration: "2022 - 2023",
-            location: "Remote",
-            description:
-                "Mastered modern JavaScript (ES6+), React.js, Tailwind CSS, and Framer Motion. Focused on responsive design, performance tuning, and reusable component libraries.",
-            highlights: [
-                "Converted complex UI/UX designs into pixel-perfect responsive web pages.",
-                "Designed fluid micro-animations and intuitive interactive states.",
-            ],
-        },
-    ];
-
-    const proficiencyBars = [
-        { skill: "React.js & Next.js", percentage: 95 },
-        { skill: "Tailwind CSS & Modern UI", percentage: 95 },
-        { skill: "JavaScript (ES6+) & TypeScript", percentage: 90 },
-        { skill: "Node.js & Express.js", percentage: 88 },
-        { skill: "MongoDB & Database Modeling", percentage: 85 },
-        { skill: "Git, GitHub & Deployment", percentage: 90 },
-    ];
-
     return (
         <section id="education" className="space-y-12">
             {/* Section Header */}
@@ -61,15 +23,11 @@ export default function Education() {
 
                 {/* Custom Split Resume Button (Aligned with RyanCV Section Theme) */}
                 <div className="ryan-split-btn inline-flex items-stretch rounded-xl border-2 border-[#6fc844] bg-[#6fc844] overflow-hidden shadow-md shadow-[#6fc844]/20 hover:shadow-lg hover:shadow-[#6fc844]/35 transition-all w-fit">
-                    <a
-                        href="/resume/Diponkor_Roy_Full_Stack_Developer_Resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="View Resume in New Tab"
-                        className="ryan-split-btn-text px-4 sm:px-5 py-2 font-black text-black text-xs sm:text-sm tracking-widest uppercase flex items-center justify-center hover:bg-[#5eb537] transition-colors cursor-pointer select-none"
+                    <span
+                        className="ryan-split-btn-text px-4 sm:px-5 py-2 font-black text-black text-xs sm:text-sm tracking-widest uppercase flex items-center justify-center select-none cursor-default"
                     >
                         RESUME
-                    </a>
+                    </span>
 
                     <a
                         href="/resume/Diponkor_Roy_Full_Stack_Developer_Resume.pdf"

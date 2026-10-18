@@ -16,6 +16,27 @@ export default function Reviews() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [review, setReview] = useState([]);
+    const [refreshCount, setRefreshCount] = useState(0);
+
+    useEffect(() => {
+        let isMounted = true;
+        const loadReviews = async () => {
+            try {
+                const result = await getReviews();
+                if (isMounted && result?.success && Array.isArray(result.data)) {
+                    setReview(result.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch reviews:", error);
+            }
+        };
+
+        loadReviews();
+        return () => {
+            isMounted = false;
+        };
+    }, [refreshCount]);
 
     const handleChange = (e) => {
         setFormData({
@@ -41,6 +62,7 @@ export default function Reviews() {
                     rating: "5",
                     review: "",
                 });
+                setRefreshCount((prev) => prev + 1);
             }
         } catch (error) {
             console.error(error);
@@ -50,25 +72,10 @@ export default function Reviews() {
         }
     };
 
-    const [review, setReview] = useState([]);
-    useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const result = await getReviews();
-                if (result.success) {
-                    setReview(result.data);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchReviews();
-    }, []);
-
-    const displayReviews = review.length > 0 ? review : defaultReviews;
+    const displayReviews = (review.length > 0 ? review : defaultReviews).slice(0, 4);
 
     return (
-        <section id="reviews" className="space-y-10">
+        <section id="reviews" className="space-y-8 sm:space-y-10">
             {/* Section Header */}
             <div>
                 <div className="flex items-center gap-3">
@@ -82,45 +89,51 @@ export default function Reviews() {
                 </h2>
             </div>
 
-            {/* Review Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {displayReviews.map((item, index) => (
-                    <motion.div
-                        key={item.id || item._id || index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        whileHover={{ y: -4 }}
-                        className="bg-[#16171b] border border-zinc-800/80 hover:border-[#6fc844]/50 rounded-2xl p-6 transition-all duration-300 shadow-lg flex flex-col justify-between relative group"
-                    >
-                        <MessageSquareQuote className="absolute top-4 right-4 w-7 h-7 text-zinc-800 group-hover:text-[#6fc844]/30 transition-colors pointer-events-none" />
+            {/* Review Cards (4 cards in 2x2 grid with compact height) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                {displayReviews.map((item, index) => {
+                    const cleanReview = item.review
+                        ? item.review.replace(/^["'\s“]+|["'\s”]+$/g, "").trim()
+                        : "";
 
-                        <div>
-                            {/* Stars */}
-                            <div className="flex items-center gap-1 text-[#6fc844] mb-3">
-                                {[...Array(Number(item.rating || 5))].map((_, i) => (
-                                    <Star key={i} size={15} fill="currentColor" />
-                                ))}
-                            </div>
+                    return (
+                        <motion.div
+                            key={item.id || item._id || index}
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.35, delay: index * 0.08 }}
+                            viewport={{ once: true }}
+                            whileHover={{ y: -3 }}
+                            className="bg-[#16171b] border border-zinc-800/80 hover:border-[#6fc844]/50 rounded-xl p-4 sm:p-5 transition-all duration-300 shadow-md flex flex-col justify-between relative group"
+                        >
+                            <MessageSquareQuote className="absolute top-3.5 right-3.5 w-5 h-5 text-zinc-800 group-hover:text-[#6fc844]/30 transition-colors pointer-events-none" />
 
-                            <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed italic">
-                                &ldquo;{item.review}&rdquo;
-                            </p>
-                        </div>
-
-                        <div className="mt-5 pt-3 border-t border-zinc-800/80 flex items-center justify-between">
                             <div>
-                                <h4 className="font-bold text-sm text-white">
-                                    {item.name}
-                                </h4>
-                                <p className="text-xs text-[#6fc844]">
-                                    {item.company}
+                                {/* Stars */}
+                                <div className="flex items-center gap-1 text-[#6fc844] mb-2">
+                                    {[...Array(Number(item.rating || 5))].map((_, i) => (
+                                        <Star key={i} size={14} fill="currentColor" />
+                                    ))}
+                                </div>
+
+                                <p className="text-zinc-300 text-xs sm:text-[13px] leading-snug sm:leading-relaxed italic">
+                                    &ldquo;{cleanReview}&rdquo;
                                 </p>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+
+                            <div className="mt-3 pt-2.5 border-t border-zinc-800/80 flex items-center justify-between">
+                                <div>
+                                    <h4 className="font-bold text-xs sm:text-sm text-white leading-tight">
+                                        {item.name}
+                                    </h4>
+                                    <p className="text-[11px] sm:text-xs text-[#6fc844] mt-0.5">
+                                        {item.company}
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
 
             {/* Leave a Review Form */}

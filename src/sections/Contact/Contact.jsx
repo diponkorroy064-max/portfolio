@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, MessageCircle } from "lucide-react";
+import { Send, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import SocialLinks from "@/components/SocialLinks";
 import { toast } from "sonner";
+import { sendMessage } from "@/lib/messege/messege";
+import contactChannels from "@/data/contact";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -14,6 +16,8 @@ export default function Contact() {
         message: "",
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -21,51 +25,39 @@ export default function Contact() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
-        const message = `*New Portfolio Contact* 
-👤 Name: ${formData.name} 
-📧 Email: ${formData.email} 
-📝 Subject: ${formData.subject} 
-💬 Message: ${formData.message}`;
+        try {
+            const result = await sendMessage(formData);
 
-        const phone = "8801744533593"; // WhatsApp number
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
-
-        toast.success("Opening WhatsApp with your message!");
-
-        setFormData({
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-        });
+            if (result.success) {
+                toast.success("🎉 Thank you! Your message has been sent successfully.");
+                setFormData({
+                    name: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+            } else {
+                toast.error(result.message || "Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            toast.error("Something went wrong. Please check your connection and try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
-    const contactChannels = [
-        {
-            icon: Mail,
-            title: "Email Address",
-            value: "diponkorroy064@gmail.com",
-            link: "https://mail.google.com/mail/?view=cm&fs=1&to=diponkorroy064@gmail.com",
-            isExternal: true,
-        },
-        {
-            icon: Phone,
-            title: "Phone / WhatsApp",
-            value: "+880 1744533593",
-            link: "https://wa.me/8801744533593",
-            isExternal: true,
-        },
-        {
-            icon: MapPin,
-            title: "Location",
-            value: "Dhaka-1207, Bangladesh",
-            link: null,
-            isExternal: false,
-        },
-    ];
+    const handleWhatsApp = () => {
+        const text = formData.message
+            ? `*New Portfolio Contact* \n👤 Name: ${formData.name || "N/A"}\n📧 Email: ${formData.email || "N/A"}\n📝 Subject: ${formData.subject || "General Inquiry"}\n💬 Message: ${formData.message}`
+            : "Hello Diponkor, I came across your portfolio and would like to connect!";
+        const phone = "8801744533593";
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+    };
 
     return (
         <section id="contact" className="space-y-10">
@@ -198,18 +190,24 @@ export default function Contact() {
                         />
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
                         <button
                             type="submit"
-                            className="w-full sm:w-auto bg-[#6fc844] hover:bg-[#5eb537] text-black font-bold py-3.5 px-8 rounded-xl text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-lg shadow-[#6fc844]/20 flex items-center justify-center gap-2 cursor-pointer"
+                            disabled={isSubmitting}
+                            className="w-full sm:w-auto bg-[#6fc844] hover:bg-[#5eb537] text-black font-bold py-3.5 px-8 rounded-xl text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-lg shadow-[#6fc844]/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            <Send size={15} />
-                            Send Message (WhatsApp)
+                            <Send size={15} className={isSubmitting ? "animate-pulse" : ""} />
+                            {isSubmitting ? "Sending Message..." : "Send Message"}
                         </button>
 
-                        <div className="flex items-center gap-3 text-xs text-zinc-400">
-                            <span>Or reach directly via email</span>
-                        </div>
+                        <button
+                            type="button"
+                            onClick={handleWhatsApp}
+                            className="w-full sm:w-auto border border-zinc-800 hover:border-[#6fc844]/40 bg-[#121316] hover:bg-[#181a1f] text-zinc-300 hover:text-white py-3 px-5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <MessageCircle size={15} className="text-[#6fc844]" />
+                            <span>Quick Chat on WhatsApp</span>
+                        </button>
                     </div>
                 </form>
             </motion.div>

@@ -12,7 +12,7 @@ export default function Projects() {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     // Extract categories
-    const categories = ["all", "full stack", "mern stack"];
+    const categories = ["all", "full stack", "mern stack", "Frontend"];
 
     const filteredProjects = useMemo(() => {
         if (selectedCategory === "all") return projects;
